@@ -4,9 +4,9 @@ require 'spec_helper'
 describe "StaticPages" do
   describe "主页(Home Page)" do
 
-    it "必须拥有标题\'呱蛙\'(QuackFrog)" do
+    it "必须拥有标题\'Rails China\'(QuackFrog)" do
 			visit '/static_pages/home'
-			expect(page).to have_content('Quack Frog')
+			expect(page).to have_content('Rails China')
     end
 
   end

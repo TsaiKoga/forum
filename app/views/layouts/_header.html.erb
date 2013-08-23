@@ -1,0 +1,21 @@
+<header class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+				<ul class="nav">
+					<li>
+						<%= link_to "Rails China", '#', id: 'logo'%>
+					</li>
+					<li class="first"><%= link_to "社区", '#'%></li>
+					<li><%= link_to "酷站", '#'%></li>
+					<li class="last"><%= link_to "会员", '#'%></li>
+				</ul>
+
+				<%= form_tag("/search", method: "get", class: "navbar-search pull-left") do%>
+					<%= text_field_tag :q, nil, class: "search-query span3", placeholder: "搜索" %>
+				<%end%>
+
+				<ul class="nav pull-right" id="userbar">
+				</ul>
+		</div>
+	</div>
+</header>

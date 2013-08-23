@@ -1,0 +1,53 @@
+@import "bootstrap";
+/* 全局 */
+html {
+	overflow-y: scroll;		 // 支持向下拉
+}
+
+body {
+	padding-top: 150px;    // 内容在导航条下90px位置开始
+	font-family: Arial,Helvetica,sans-serif;
+	background-image: url(background.png);
+}
+
+.center {
+	text-align: center;		 // 所有加上center的都可居中
+}
+
+#logo {
+	font-size: 1.5em;
+	letter-spacing: -1px;
+	padding-bottom: 11px;
+	font-weight: bold;
+	font-style: italic;
+	line-height: 1;
+}
+
+#logo:hover {
+	color: red;
+	text-decoration: none;
+}
+
+.footer {
+	margin-top: 45px;
+	padding-top: 5px;
+	// border-top: 1px solid #eaeaea;   // 白灰的线条
+}
+
+.footer a {
+}
+.footer a:hover{
+}
+.footer .container div .pull-left img {
+	width: 48px;
+}
+.links {
+	float: left;
+	margin-left: 10px;
+	list-style: none;
+}
+.copyright {
+	float: left;
+	margin-left: 10px;
+	color: #888888;
+}
