@@ -42,3 +42,14 @@ end
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
 end
+group :test do
+  gem 'selenium-webdriver', '2.0.0'
+  gem 'capybara', '2.1.0'
+end
+
+# 美化irb输出表
+gem 'wirble'
+gem 'hirb', '0.6.1'
+gem 'hirb-unicode'
+
+gem "magic_encoding" #  # -*- encoding : utf-8 -*-
