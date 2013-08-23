@@ -14,7 +14,7 @@ development:
   database: forum_development
   pool: 5
   username: root
-  password:
+  password: '000'
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -26,7 +26,7 @@ test:
   database: forum_test
   pool: 5
   username: root
-  password:
+  password: '000'
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -35,5 +35,5 @@ production:
   database: forum_production
   pool: 5
   username: root
-  password:
+  password: '000'
   socket: /var/run/mysqld/mysqld.sock
