@@ -1,0 +1,50 @@
+<div id="main" class="container-fluid">
+	<div class="content">
+		<div class="box">
+			<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {class: "form-horizontal"}) do |f| %>
+				<fieldset>
+					<legend>登录</legend>
+
+					<div class="control-group">
+						<%= f.label 'email', '邮箱', class: "control-label" %>
+						<div class="controls">
+							<%= f.email_field :email, :autofocus => true %>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<%= f.label :password, '密码', class: "control-label" %>
+						<div class="controls">
+							<%= f.password_field :password %>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<div class="controls">
+							<% if devise_mapping.rememberable? -%>
+								<%= f.label(:remember_me, :html => {class: 'checkbox'}) do %>
+									<%= f.check_box :remember_me %> 记住登录状态
+								<%end%>
+							<% end -%>
+						</div>
+
+						<div class="form-actions">
+							<%= f.submit "登录", class: 'btn btn-primary btn-small' %>
+						</div>
+					</div>
+				</fieldset>
+			<% end %>
+		</div>
+	</div>
+
+	<div class="sidebar">
+		<div class="box">
+			<h2>还没有帐号</h2>
+			<%= render "devise/shared/links" %>
+		</div>
+
+		<div class="box">
+			<h2>用其他平台的帐号登录</h2>
+		</div>
+	</div>
+</div>

@@ -1,16 +1,17 @@
 @import "bootstrap";
 
-/* 全局 */
+/******************************** 全局 ***********************************/
 $grayLight: #999;
 $gray: #666;
 $grayMediumLight: #eaeaea;
+$white: #fff;
 
 html {
 	overflow-y: scroll;		 // 支持向下拉
 }
 
 body {
-	padding-top: 150px;    // 内容在导航条下90px位置开始
+	padding-top: 60px;    // 内容在导航条下60px位置开始
 	font-family: Arial,Helvetica,sans-serif;
 	background-image: url(background.png);
 }
@@ -40,7 +41,9 @@ h2 {
 }
 
 p {
-  line-height: 1.7em;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	line-height: 18px;
 }
 
 #logo {
@@ -65,7 +68,7 @@ p {
 		&:hover{
 		}
 	}
-	.container div .pull-left img {
+	.container>div>.pull-left>img {
 		width: 48px;
 	}
 }
@@ -79,4 +82,54 @@ p {
 	float: left;
 	margin-left: 10px;
 	color: $gray;
+}
+
+/**************************圆角的矩形框********************************/
+.box {
+	background-color: $white;
+	padding: 10px;
+	margin: 0 0 20px 0;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: 0 0px 2px rgba(0,0,0,0.05);
+	-moz-box-shadow: 0 0px 2px rgba(0,0,0,0.05);
+	box-shadow: 0 0px 2px rgba(0,0,0,0.05);
+}
+/***********************************************************************/
+
+/* 用户注册和登录 */
+.container-fluid{
+	padding: 0;
+	.content {
+		margin-left: 0;
+		margin-right: 260px;
+	}
+	.sidebar {
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 240px;
+	}
+}
+#main {
+	position: relative;
+}
+.sidebar h2 {
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 100%;
+	color: $grayLight;
+	margin: 0 -10px 10px -10px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #ddd;
+}
+legend {
+	font-size: 16px;
+	font-weight: bold;
+	color: #333333;
+	border-bottom: 1px solid #eee;
+}
+.form-actions {
+	background-color: #f9f9f9;
 }

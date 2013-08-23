@@ -26,4 +26,9 @@ Forum::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+	# devise set up default url options for the mailer in each environment
+	config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
+
+Hirb.enable

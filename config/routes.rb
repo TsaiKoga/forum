@@ -1,4 +1,5 @@
 Forum::Application.routes.draw do
+  devise_for :users
 	root to: 'static_pages#home'
 
   match "/community", to: "static_pages#community", via: "get" 
