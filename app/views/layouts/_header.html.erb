@@ -3,11 +3,11 @@
 		<div class="container">
 				<ul class="nav">
 					<li>
-						<%= link_to "Rails China", '#', id: 'logo'%>
+						<%= link_to "Rails China", root_path, id: 'logo'%>
 					</li>
-					<li class="first"><%= link_to "社区", '#'%></li>
-					<li><%= link_to "酷站", '#'%></li>
-					<li class="last"><%= link_to "会员", '#'%></li>
+					<li class="first"><%= link_to "社区", community_path %></li>
+					<li><%= link_to "酷站", cool_site_path %></li>
+					<li class="last"><%= link_to "会员", member_path %></li>
 				</ul>
 
 				<%= form_tag("/search", method: "get", class: "navbar-search pull-left") do%>
