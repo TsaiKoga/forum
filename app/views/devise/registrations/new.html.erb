@@ -13,7 +13,10 @@
 				<legend>注册新用户</legend>
 
 				<div class="control-group">
-					<%= f.label :email, '邮箱', class: "control-label" %>
+					<%= f.label :email, class: "control-label" do%>
+						<abbr class="required">*</abbr>
+						邮箱
+					<%end%>
 					<div class="controls">
 						<%= f.email_field :email, :autofocus => true %>
 					</div>

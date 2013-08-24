@@ -14,7 +14,10 @@
 				<legend>个人资料设置</legend>
 
 				<div class="control-group">
-					<%= f.label :email, class: 'control-label' %>
+					<%= f.label :email, class: 'control-label' do %>
+						<abbr class="required">*</abbr>
+						email
+					<%end%>
 					<div class="controls">
 						<%= f.email_field :email, :autofocus => true %>
 					</div>

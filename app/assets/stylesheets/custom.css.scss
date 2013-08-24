@@ -5,6 +5,7 @@ $grayLight: #999;
 $gray: #666;
 $grayMediumLight: #eaeaea;
 $white: #fff;
+$red: #c00;
 
 html {
 	overflow-y: scroll;		 // 支持向下拉
@@ -132,4 +133,7 @@ legend {
 }
 .form-actions {
 	background-color: #f9f9f9;
+}
+.required {
+	color: $red;
 }

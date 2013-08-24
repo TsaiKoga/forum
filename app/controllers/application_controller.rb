@@ -2,4 +2,22 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+
+	# 网上查的
+	# after_filter :store_location
+
+	# private
+		# def store_location
+			# session[:return_to] = request.fullpath
+		# end
+
+		# def clear_stored_location
+			# session[:return_to] = nil
+		# end
+
+		# def redirect_back_or_to(alternate)
+			# redirect_to(session[:return_to] || alternate)
+			# clear_stored_location
+		# end
+
 end
