@@ -1,29 +1,72 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="hidden-phone">
+	<ul class="breadcrumb">
+		<li><%=link_to "Home", root_path%></li>
+	</ul>
+</div>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div id="main" class="container-fluid">
+	<div class="content">
+	<div class="box">
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => "form-horizontal", :method => :put }) do |f| %>
+			<%= devise_error_messages! %>
+			<fieldset>
+				<legend>个人资料设置</legend>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+				<div class="control-group">
+					<%= f.label :email, class: 'control-label' %>
+					<div class="controls">
+						<%= f.email_field :email, :autofocus => true %>
+					</div>
+				</div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
+				<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+					<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+				<% end %>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+				<div class="control-group">
+					<%= f.label :password, "密码", class: 'control-label' %> 
+					<div class="controls">
+						<%= f.password_field :password, :autocomplete => "off" %>
+					</div>
+				</div>
 
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
+				<div class="control-group">
+					<%= f.label :password_confirmation, "确认密码", class: 'control-label' %>
+					<div class="controls">
+						<%= f.password_field :password_confirmation %>
+					</div>
+				</div>
 
-  <div><%= f.submit "Update" %></div>
-<% end %>
+				<div class="control-group">
+					<%= f.label :current_password, class: 'control-label' %>
+					<div class="controls">
+						<%= f.password_field :current_password %>
+					</div>
+				</div>
 
-<h3>Cancel my account</h3>
+				<div class="form-actions">
+					<%= f.submit "更新资料", class: 'btn btn-primary btn-small' %>
+				</div>
+			</fieldset>
+		<% end %>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+		<%= link_to "Back", :back %>
+	</div>
+	</div>
 
-<%= link_to "Back", :back %>
+	<div class="sidebar">
+		<div class="box">
+		</div>
+
+		<div class="box">
+			<h2>绑定其他帐号用于登录</h2>
+		</div>
+
+		<div class="box">
+			<h2>Delete My Account</h2>
+			<p>不喜欢?
+			<%= link_to("删除此帐号", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "btn btn-danger") %></p>
+		</div>
+	</div>
+</div>

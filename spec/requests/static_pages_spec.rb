@@ -4,9 +4,10 @@ require 'spec_helper'
 describe "StaticPages" do
   describe "主页(Home Page)" do
 
-    it "必须拥有标题\'Rails China\'()" do
+    it "必须拥有标题\'Rails China\'和导航('首页')" do
 			visit '/'
 			expect(page).to have_content('Rails China')
+			expect(page).to have_content('首页')
     end
 
   end
@@ -26,6 +27,13 @@ describe "StaticPages" do
 	describe "会员(Member Page)" do
 		it "必须拥有" do
 			visit '/member'
+		end
+	end
+
+	describe "注册" do
+		it "必须拥有注册按钮" do
+			visit "/users/sign_up"
+			expect(page).to have_button('提交注册信息')
 		end
 	end
 

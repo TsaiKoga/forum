@@ -1,12 +1,36 @@
-<h2>Forgot your password?</h2>
+<div class="hidden-phone">
+	<ul class="breadcrumb">
+		<li><%= link_to "Home", root_path%></li>
+	</ul>
+</div>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+<div id="main" class="container-fluid">
+	<div class="content">
+		<div class="box">
+			<fieldset>
+				<legend>忘记了密码?</legend>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+				<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :class => "form-horizontal" }) do |f| %>
+					<%= devise_error_messages! %>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
+					<div class="control-group">
+						<%= f.label :email, class: 'control-label' %>
+						<div class="controls">
+							<%= f.email_field :email, :autofocus => true %>
+							<br /><br />
+							<p>此功能将会发送一个找回密码的特别链接到你的邮箱，通过改链接可以进入重置密码的页面。</p>
+						</div>
+					</div>
+					
+					<div class="form-actions"><%= f.submit "找回密码", class: "btn btn-primary btn-small" %></div>
+				<% end %>
+			</fieldset>
+		</div>
+	</div>
 
-<%= render "devise/shared/links" %>
+	<div class="sidebar">
+		<div class="box">
+			<%= render "devise/shared/links" %>
+		</div>
+	</div>
+</div>
