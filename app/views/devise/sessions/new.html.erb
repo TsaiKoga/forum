@@ -12,6 +12,16 @@
 					<legend>登录</legend>
 
 					<div class="control-group">
+						<%= f.label 'name', class: "control-label" do %>
+							<abbr class="required">*</abbr>
+							用户名	
+						<%end%>
+						<div class="controls">
+							<%= f.text_field :name, :autofocus => true %>
+						</div>
+					</div>
+
+					<div class="control-group">
 						<%= f.label 'email', class: "control-label" do %>
 							<abbr class="required">*</abbr>
 							邮箱

@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+	# 用来给devise增加字段的，允许发送后台
+	# before_filter :update_sanitized_params, if: :devise_controller?
+	# def update_sanitized_params
+		# devise_parameter_sanitizer.for(:sign_up){|u| u.permit(:dddd)}
+	# end
+
 	# 网上查的
 	# after_filter :store_location
 
