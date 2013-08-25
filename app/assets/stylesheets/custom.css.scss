@@ -4,6 +4,7 @@
 $grayLight: #999;
 $gray: #666;
 $grayMediumLight: #eaeaea;
+$whiteDark: #ddd;
 $white: #fff;
 $red: #c00;
 
@@ -123,7 +124,7 @@ p {
 	color: $grayLight;
 	margin: 0 -10px 10px -10px;
 	padding-bottom: 8px;
-	border-bottom: 1px solid #ddd;
+	border-bottom: 1px solid $whiteDark;
 }
 legend {
 	font-size: 16px;

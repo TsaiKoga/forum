@@ -6,11 +6,30 @@
 	</ul>
 </div>
 
-<div id="main">
-	<div class="box"></div>
+<div id="main" class="container-fluid">
+	<div class="box" style="text-align:center">
+		<p>Rails China, 对!没错！这里是rails社区，目前没有什么人。</p>
+	</div>
 
 	<div class="home_suggest_topics">
-		<div class="box span5"></div>
-		<div class="box span5"></div>
+		<div class="box high_replies_topics">
+			<h2 class="title">热门帖子</h2>
+			<ul>
+				<% @high_likes_topics.each do |topic| %>
+					<li><%= link_to "#{topic.title} "%>
+					<span class="count"><%= "#{topic.replie_num}人回复"%></span></li>
+				<% end %>
+			</ul>
+		</div>
+
+		<div class="box high_likes_topics">
+			<h2 class="title">高分帖子</h2>
+			<ul>
+				<% @high_replies_topics.each do |topic| %>
+					<li><%= link_to "#{topic.title} " %>
+					<span class="count"><%= "#{topic.like_num}人喜欢"%></span></li>
+				<% end %>
+			</ul>
+		</div>
 	</div>
 </div>

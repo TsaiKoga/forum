@@ -3,6 +3,7 @@ require 'spec_helper'
 
 describe "StaticPages" do
   describe "主页(Home Page)" do
+		subject {page}
 
     it "必须拥有标题\'Rails China\'和导航('首页')" do
 			visit '/'
@@ -10,6 +11,20 @@ describe "StaticPages" do
 			expect(page).to have_content('首页')
     end
 
+		describe "显示高分帖子" do
+			let(:user) {FactoryGirl.create(:user)}
+			before do
+				FactoryGirl.create(:post, user: user, content: "My name is CKJ.", like_num: 3)
+				FactoryGirl.create(:post, user: user, content: "what's your name?", like_num: 5)
+			end
+
+			it "高分帖子中必须有一条帖子" do
+				user.posts do |item|
+					expect(page).to have_selector("li#{item.id}", text: item.content)
+				end
+			end
+
+		end
   end
 
 	describe "社区(Community Page)" do

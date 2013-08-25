@@ -5,6 +5,9 @@ gem 'rails', '4.0.0'
 
 gem 'devise', '3.0.3'
 gem 'bootstrap-sass', '2.3.2.0'
+gem 'factory_girl_rails', '4.2.1' 
+gem 'faker', '1.1.2'								# 使用半真实的名字和email地址创建用户
+
 
 # Use mysql as the database for Active Record
 gem 'mysql2'
