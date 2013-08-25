@@ -1,2 +1,23 @@
-<h1>StaticPages#cool_site</h1>
-<p>Find me in app/views/static_pages/cool_site.html.erb</p>
+<div class="hidden-phone">
+	<ul class="breadcrumb">
+		<li><%=link_to "Home", root_path %><span class="divider">/</span></li>
+		<li><%=link_to "酷站", cool_site_path %></li>
+	</ul>
+</div>
+
+<div id='main' class="container-fluid">
+	<div id="site_nodes">
+		<div class="box">
+			<h2>国内商业网站</h2>
+			<div class="row">
+			</div>
+		</div>
+
+		<div class="box">
+			<h2>其他网站</h2>
+			<div class="row">
+			</div>
+		</div>
+
+	</div>
+</div>

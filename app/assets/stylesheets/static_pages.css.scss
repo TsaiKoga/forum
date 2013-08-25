@@ -39,3 +39,17 @@ $whiteDark: #ddd;
 	font-size: 12px;
 	display: inline-block;
 }
+
+/**************** 酷站 **********************/
+#site_nodes {
+	h2 {
+		font-size: 14px;
+		line-height: 100%;
+		color: $grayLight;
+		padding: 10px;
+		padding-top: 0;
+		margin: 0 -10px;
+		border-bottom: 1px solid $whiteDark;
+		margin-bottom: 20px;
+	}
+}
