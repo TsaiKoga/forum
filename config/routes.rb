@@ -3,6 +3,7 @@ Forum::Application.routes.draw do
 		:sessions => "users/sessions",
 		:registrations => "users/registrations"
 	}
+
 	root to: 'static_pages#home'
 
   match "/community", to: "static_pages#community", via: "get" 

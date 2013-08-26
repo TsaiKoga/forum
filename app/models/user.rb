@@ -8,13 +8,16 @@ class User < ActiveRecord::Base
 	has_many :posts, dependent: :destroy
 	has_many :comments
 
-	validates :name, :uniqueness => {:case_sensitive => false}
+	validates :name, uniqueness: {case_sensitive: false}
+	validates :signature, length: {maximum:  25}
+	validates :introduction, length: {maximum: 500}
 
 	attr_accessor :login
 
 	has_attached_file :avatar, 
 		:default_url => "/images/:attachment/:style/missing.png",
-		:path => "/images/:attachment/:id/:style.:extension",
+		:path => ":rails_root/public/images/:attachment/:id/:style.:extension",			# 存储路径
+		:url => "/images/:attachment/:id/:style.:extension",												# 读取路径
 		:styles => {:small => "16X16", :normal => "48X48", :large => "64X64", :big => "120X120"}
 
 	# 覆盖find_for_database_authentication方法

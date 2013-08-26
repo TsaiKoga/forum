@@ -17,8 +17,13 @@ gem 'uglifier', '2.1.1'
 gem 'devise', '3.0.3'
 # gem 'devise-encryptable'
 
+# 第三方平台OAuth验证登录
+# gem "omniauth"
+# gem "omniauth-github"
+
 # 用户头像
 gem 'paperclip'
+gem 'aws-sdk'
 
 # 分页
 # gem 'will_paginate'
@@ -48,6 +53,9 @@ gem "magic_encoding"								#文件最顶部加上 -*- encoding : utf-8 -*-
 gem 'wirble'
 gem 'hirb', '0.6.1'
 gem 'hirb-unicode'
+
+# 用于调试
+gem 'debugger'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false

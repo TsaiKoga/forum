@@ -68,6 +68,20 @@
 					</div>
 				</div>
 
+				<div class="control-group">
+					<%= f.label :signature, "个性签名", class: 'control-label' %>
+					<div class="controls">
+						<%= f.text_field :signature, :autofocus => true, class: 'xxlarge' %>
+					</div>
+				</div>
+
+				<div class="control-group text">
+					<%= f.label :introduction, "个人介绍", class: 'control-label' %>
+					<div class="controls">
+						<%= f.text_area :introduction, :autofocus => true, rows: 6, class: 'xxlarge' %>
+					</div>
+				</div>
+
 				<div class="form-actions">
 					<%= f.submit "更新资料", class: 'btn btn-primary btn-small' %>
 				</div>

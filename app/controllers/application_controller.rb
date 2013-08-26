@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
 	# 健壮参数:可以指定需要哪些请求参数，允许传入哪些请求参数。
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :name, :remember) }
-		devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:login, :name, :avatar, :current_password)}
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:login, :name, :email, :password, :avatar) }
+		devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:login, :name, :avatar, :current_password, :signature, :introduction)}
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:login, :name, :email, :avatar, :password) }
   end
 
 end
