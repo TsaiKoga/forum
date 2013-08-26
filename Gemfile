@@ -17,6 +17,9 @@ gem 'uglifier', '2.1.1'
 gem 'devise', '3.0.3'
 # gem 'devise-encryptable'
 
+# 用户头像
+gem 'paperclip'
+
 # 分页
 # gem 'will_paginate'
 

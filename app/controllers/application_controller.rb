@@ -4,26 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 	# 用来给devise增加字段的，允许发送后台
-	# before_filter :update_sanitized_params, if: :devise_controller?
-	# def update_sanitized_params
-		# devise_parameter_sanitizer.for(:sign_up){|u| u.permit(:dddd)}
-	# end
+	before_filter :configure_permitted_parameters, if: :devise_controller?
 
-	# 网上查的
-	# after_filter :store_location
-
-	# private
-		# def store_location
-			# session[:return_to] = request.fullpath
-		# end
-
-		# def clear_stored_location
-			# session[:return_to] = nil
-		# end
-
-		# def redirect_back_or_to(alternate)
-			# redirect_to(session[:return_to] || alternate)
-			# clear_stored_location
-		# end
+  protected
+	# 健壮参数:可以指定需要哪些请求参数，允许传入哪些请求参数。
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :name, :remember) }
+		devise_parameter_sanitizer.for(:account_update) {|u| u.permit(:login, :name, :avatar, :current_password)}
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:login, :name, :email, :password, :avatar) }
+  end
 
 end

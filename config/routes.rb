@@ -1,5 +1,8 @@
 Forum::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { 
+		:sessions => "users/sessions",
+		:registrations => "users/registrations"
+	}
 	root to: 'static_pages#home'
 
   match "/community", to: "static_pages#community", via: "get" 
