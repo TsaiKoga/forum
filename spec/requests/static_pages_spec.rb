@@ -14,33 +14,18 @@ describe "StaticPages" do
 		describe "显示高分帖子" do
 			let(:user) {FactoryGirl.create(:user)}
 			before do
-				FactoryGirl.create(:post, user: user, content: "My name is CKJ.", like_num: 3)
-				FactoryGirl.create(:post, user: user, content: "what's your name?", like_num: 5)
+				FactoryGirl.create(:topic, user: user, content: "My name is CKJ.", like_num: 3)
+				FactoryGirl.create(:topic, user: user, content: "what's your name?", like_num: 5)
 			end
 
 			it "高分帖子中必须有一条帖子" do
-				user.posts do |item|
+				user.topics do |item|
 					expect(page).to have_selector("li#{item.id}", text: item.content)
 				end
 			end
 
 		end
   end
-
-	describe "社区(Community Page)" do
-		let(:user) {FactoryGirl.create(:user)}
-		before do
-			FactoryGirl.create(:post, user: user, content: "My name is CKJ.", like_num: 3)
-			FactoryGirl.create(:post, user: user, content: "what's your name?", like_num: 5)
-		end
-
-		it "必须拥有帖子" do
-			visit '/community'
-			user.posts do |item|
-				expect(page).to have_selector("a", text: "#{item.title}" )
-			end
-		end
-	end
 
 	describe "酷站(Cool Site Page)" do
 		it "必须拥有" do

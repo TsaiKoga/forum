@@ -10,7 +10,7 @@ FactoryGirl.define do
 		end
   end
 
-	factory :post do
+	factory :topic do
 		title "My Name"
 		content "My name is CKJ."
 		like_num 12

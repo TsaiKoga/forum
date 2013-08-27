@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, 
          :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:login]
 
-	has_many :posts, dependent: :destroy
+	has_many :topics, dependent: :destroy
 	has_many :comments
 
 	validates :name, uniqueness: {case_sensitive: false}

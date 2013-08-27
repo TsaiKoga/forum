@@ -1,6 +1,6 @@
-class CreatePosts < ActiveRecord::Migration
+class CreateTopics < ActiveRecord::Migration
   def change
-    create_table :posts do |t|
+    create_table :topics do |t|
       t.string :title
       t.integer :read_num
       t.integer :like_num
@@ -9,6 +9,6 @@ class CreatePosts < ActiveRecord::Migration
 
       t.timestamps
     end
-		add_index :posts, [:user_id, :created_at]
+		add_index :topics, [:user_id, :created_at]
   end
 end

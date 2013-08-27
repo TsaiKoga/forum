@@ -15,14 +15,14 @@ ActiveRecord::Schema.define(version: 20130826094620) do
 
   create_table "comments", force: true do |t|
     t.integer  "user_id"
-    t.integer  "post_id"
+    t.integer  "topic_id"
     t.text     "content"
     t.integer  "like_num"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "posts", force: true do |t|
+  create_table "topics", force: true do |t|
     t.string   "title"
     t.integer  "read_num"
     t.integer  "like_num"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20130826094620) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "topics", ["user_id", "created_at"], name: "index_topics_on_user_id_and_created_at", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
@@ -45,7 +47,6 @@ ActiveRecord::Schema.define(version: 20130826094620) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "password_salt"
     t.boolean  "admin",                  default: false
     t.string   "name"
     t.string   "avatar_file_name"

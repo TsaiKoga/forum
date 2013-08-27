@@ -3,9 +3,10 @@ Forum::Application.routes.draw do
 
 	root to: 'static_pages#home'
 
+	resources :topics
+
 	match "/about", to: "static_pages#about", via: "get"
 
-  match "/community", to: "static_pages#community", via: "get" 
   match "/cool_site", to: "static_pages#cool_site", via: "get"
   match "/member", to: "static_pages#member", via: 'get'
 
@@ -14,7 +15,5 @@ Forum::Application.routes.draw do
 	match "/:name/favorites", to: "static_pages#favorites", via: 'get', as: 'user_favorites'
 	match "/:name/notes", to: "static_pages#notes", via: 'get', as: 'user_notes'
 
-
-	resources :posts
 
 end

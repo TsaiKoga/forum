@@ -1,13 +1,9 @@
 # -*- encoding : utf-8 -*-
 class StaticPagesController < ApplicationController
 	def home
-		@high_likes_topics = Post.find_high_likes_topics
-		@high_replies_topics = Post.find_high_replies_topics
+		@high_likes_topics = Topic.find_high_likes_topics
+		@high_replies_topics = Topic.find_high_replies_topics
 	end
-
-	def community
-		@topics = Post.paginate(page: params[:page], per_page: 15)
-  end
 
   def cool_site
   end
