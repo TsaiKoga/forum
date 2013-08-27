@@ -28,8 +28,17 @@ describe "StaticPages" do
   end
 
 	describe "社区(Community Page)" do
-		it "必须拥有" do
+		let(:user) {FactoryGirl.create(:user)}
+		before do
+			FactoryGirl.create(:post, user: user, content: "My name is CKJ.", like_num: 3)
+			FactoryGirl.create(:post, user: user, content: "what's your name?", like_num: 5)
+		end
+
+		it "必须拥有帖子" do
 			visit '/community'
+			user.posts do |item|
+				expect(page).to have_selector("a", text: "#{item.title}" )
+			end
 		end
 	end
 
@@ -58,4 +67,13 @@ describe "StaticPages" do
 			expect(page).to have_content('关于')
 		end
 	end
+
+	# describe "个人主页" do
+		# it "必须有个人信息字样，备受大家喜欢的帖子" do
+			# visit '/name'
+			# expect(page).to have_link('个人信息')
+			# expect(page).to have_content('备受大家喜欢的帖子')
+		# end
+	# end 必须已经登录
+
 end

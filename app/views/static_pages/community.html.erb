@@ -3,5 +3,59 @@
 		<li><%=link_to "Home", root_path %><span class="divider">/</span></li>
 		<li><%=link_to "社区", community_path %></li>
 	</ul>
+
+	<div id="main" class="container-fluid">
+		<div class="content">
+			<div class='box box_gray'>
+				<div id="node_info">
+					<div class="sorts">
+						<span class="lb">查看:</span>
+						<ul></ul>
+					</div>
+				</div>
+
+				<div class="topics">
+					<% @topics.each do |topic|%>
+
+						<div class="topic topic_line">
+							<div class="avatar pull-left">
+								<%= link_to "" do%>
+									<%image_tag(topic.user.avatar.url(:normal))%>
+								<% end %>
+							</div>
+
+							<div class="right_info">
+								<% unless topic.comments.empty? %>
+									<div class="replies pull-right">
+										<%= link_to "#{topic.comments.count}", class: "count"%>
+									</div>
+								<% end %>
+
+								<div class="infos">
+									<div class="title">
+										<%= link_to "#{topic.title}" %>
+									</div>
+
+									<div class="info">
+										<%= link_to "", class: "node"%>
+										<%= link_to "#{topic.user.name}"%>
+										<em>
+											于<abbr class="timeago" title="#{topic.created_at}"><%= topic.created_ago%></abbr>发布
+										</em>
+									</div>
+								</div>
+							</div>
+						</div>
+					<% end %>
+					<%= will_paginate @topics%>
+				</div>
+			</div>
+
+			<div class="sidebar">
+				<div class="box">
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
