@@ -25,7 +25,7 @@ def make_posts
 	users = User.all(limit: 6)
 	30.times do |n|
 		content = Faker::Lorem.sentence(8)
-		title = Faker::Lorem.sentence(2)
+		title = Faker::Lorem.paragraph[0..12]
 		like_num = Random.rand(n+10)
 		read_num = Random.rand(n+12)
 		users.each {|user| user.posts.create!(title: title, content: content, like_num: like_num, read_num: read_num)}

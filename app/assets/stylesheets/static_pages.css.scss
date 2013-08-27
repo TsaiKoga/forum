@@ -13,6 +13,17 @@ $whiteDark: #ddd;
 		ul {
 			list-style: none;
 			margin: 0;
+			li {
+				height: 22px;
+				line-height: 22px;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+			a {
+				float: left;
+				margin-right: 5px;
+			}
 		}
 	}
 	.high_likes_topics{
