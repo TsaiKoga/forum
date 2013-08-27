@@ -24,6 +24,12 @@
 							</div>
 
 							<div class="right_info">
+								<% unless topic.comments.empty? %>
+									<div class="replies pull-right">
+										<%= link_to "#{topic.comments.count}", class: "count"%>
+									</div>
+								<% end %>
+
 								<div class="infos">
 									<div class="title">
 										<%= link_to "#{topic.title}" %>
@@ -40,6 +46,9 @@
 							</div>
 						</div>
 					<% end %>
+
+					<%= will_paginate @topics%>
+
 				</div>
 			</div>
 

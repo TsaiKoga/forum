@@ -154,6 +154,28 @@ $gray: #778087;
 			font-style: normal;
 		}
 	}
+	.replies {
+		width: 70px;
+		margin-right: 10px;
+		text-align: right;
+		vertical-align: middle;
+		a.count {
+			line-height: 12px;
+			font-weight: bold;
+			color: white;
+			background-color: #1c7fdb;
+			display: inline-block;
+			padding: 2px 10px 2px 10px;
+			-moz-border-radius: 80px;
+			-webkit-border-radius: 80px;
+			border-radius: 80px;
+			margin: 18px 12px 0px 0px;
+			text-decoration: none;
+			&:hover {
+				background: #1dc115;
+			}
+	  }
+	}
 }
 
 abbr[title] {
