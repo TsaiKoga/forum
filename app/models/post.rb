@@ -13,4 +13,8 @@ class Post < ActiveRecord::Base
 		comments.count
 	end
 
+	def created_ago
+		created_at
+	end
+
 end

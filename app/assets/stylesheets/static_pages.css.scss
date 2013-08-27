@@ -5,6 +5,8 @@
 /********************** 主页 ***********************/
 $grayLight: #999;
 $whiteDark: #ddd;
+$whiteLightDark : #eee;
+$gray: #778087;
 
 .home_suggest_topics {
 	position: relative;
@@ -34,7 +36,8 @@ $whiteDark: #ddd;
 }
 
 
-.box>.title {
+.box h2.title {
+	font-weight: bold;
 	color: $grayLight;
 	margin: 0 -10px;
 	padding: 0 10px;
@@ -63,4 +66,97 @@ $whiteDark: #ddd;
 		border-bottom: 1px solid $whiteDark;
 		margin-bottom: 20px;
 	}
+}
+
+/*************** 个人信息 *****************/
+.subnav {
+	margin-bottom: -19px;
+}
+.subnav .nav-tabs {
+	border-bottom: 0px;
+	padding-left: 20px;
+}
+.userinfo {
+	ul {
+		list-style: none;
+	}
+	li {
+		font-size: 14px;
+		line-height: 180%;
+		border-bottom: 1px dashed $whiteLightDark;
+		label {
+			color: $grayLight;
+			font-size: 12px;
+			margin-right: 8px;
+			display: inline-block;
+			width: 100px;
+			text-align: right;
+		}
+	}
+}
+.box h2 .title {
+	font-size: 12px;
+	margin: 0 -10px;
+	padding: 0 10px;
+	color: $grayLight;
+	line-height: 100%;
+	border-bottom: 1px solid $whiteDark;
+	padding-bottom: 8px;
+}
+/*************************/
+.node_topics tr.head td {
+	border-top: none;
+	padding: 14px;
+	color: $grayLight;
+	font-weight: bold;
+	font-size: 12px;
+}
+/*************** 社区 *****************/
+.box_gray {
+	background: #f5f5f5;
+}
+
+#node_info {
+	margin: 0 -10px;
+	padding: 0 10px;
+	border-bottom: 1px solid $whiteDark;
+}
+
+.topics>.topic_line {
+	background: #fff;
+	border-bottom: 1px solid $whiteDark;
+	padding: 10px 0;
+	margin: 0 -10px;
+	vertical-align: top;
+	.avatar {
+		width: 56px;
+		margin-left: 10px;
+	}
+	.right-info {
+		padding-left: 66px;
+	}
+	.infos {
+		padding-right: 74px;
+	}
+	.title {
+		font-size: 14px;
+		margin-top: 2px;
+		margin-bottom: 6px;
+	}
+	.info {
+		.node {
+			padding: 1px 5px;
+			color: $gray;
+			text-decoration: none;
+			background-color: #f5f5f5;
+		}
+		.em {
+			font-style: normal;
+		}
+	}
+}
+
+abbr[title] {
+	border: 0;
+	cursor: default;
 }

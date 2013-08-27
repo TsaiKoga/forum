@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class StaticPagesController < ApplicationController
 	def home
 		@high_likes_topics = Post.find_high_likes_topics
@@ -5,6 +6,7 @@ class StaticPagesController < ApplicationController
 	end
 
   def community
+		@topics = Post.all
   end
 
   def cool_site
@@ -15,4 +17,18 @@ class StaticPagesController < ApplicationController
 
 	def about
 	end
+
+	def index
+		@user = (params[:name] == current_user.name ? current_user : User.find_by_name(params[:user]))
+	end
+
+	def topics
+	end
+
+	def favorites
+	end
+
+	def notes
+	end
+
 end
