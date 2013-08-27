@@ -1,0 +1,45 @@
+<div class="hidden-phone">
+	<ul class="breadcrumb">
+		<li><%=link_to "Home", root_path %><span class="divider">/</span></li>
+		<li><%=link_to "社区", topics_path %><span class="divider">/</span></li>
+		<li><%=link_to "浏览帖子", topic_path(@topic) %></li>
+	</ul>
+</div>
+
+<div id="main" class="container-fluid">
+	<div class="content">
+
+		<div id="topic_show" class="topics box hfeed">
+			<div class="topic hentry">
+				<div class="infos">
+					<div class="pull-right">
+						<%= image_tag(@topic.user.avatar.url(:normal))%>
+					</div>
+					<h1><%= @topic.title %></h1>
+					<div class="info_header">
+						<%= link_to "", class: 'node'%> • 
+						<%= link_to "#{@topic.user.name}", user_path(@topic.user.name)%> • 
+						<abbr class="timeago" title=""><%= @topic.created_ago %></abbr>发布 • 
+						<%= @topic.read_num %>次阅读
+					</div>
+				</div>
+
+				<div class="body entry-content">
+					<p><%= @topic.content.html_safe %></p>
+				</div>
+
+				<div class="tools">
+				</div>
+			</div>
+		</div>
+
+		<% if @topic.comments.empty? %>
+			<div class="no_result">暂无回复</div>
+		<% end %>
+	</div>
+
+	<div class="sidebar">
+		<div class="box">
+		</div>
+	</div>
+</div>

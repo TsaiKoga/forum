@@ -15,7 +15,7 @@ class StaticPagesController < ApplicationController
 	end
 
 	def index
-		@user = (params[:name] == current_user.name ? current_user : User.find_by_name(params[:user]))
+		@user = (params[:name] == current_user.name ? current_user : User.find_by_name(params[:name]))
 	end
 
 	def topics
