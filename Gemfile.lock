@@ -134,6 +134,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    redcarpet (2.1.1)
     ref (1.0.5)
     rspec-core (2.13.1)
     rspec-expectations (2.13.0)
@@ -219,6 +220,7 @@ DEPENDENCIES
   mysql2
   paperclip
   rails (= 4.0.0)
+  redcarpet
   rspec-rails (= 2.13.1)
   sass-rails (= 4.0.0)
   sdoc (= 0.3.20)
