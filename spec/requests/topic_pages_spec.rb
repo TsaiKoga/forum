@@ -19,9 +19,11 @@ describe "TopicPages" do
 			end
 		end
 
+		let(:first_topic) { user.topics.first }
 		it "帖子必须增加阅读数" do
-			expect{ click_link "#{user.topics.first.title}" }.to change(user.topics.first, read_num).by(1)
+			expect{ click_link "#{first_topic.title}" }.to change(first_topic, :read_num).by(1)
 		end
 
 	end
+
 end

@@ -39,6 +39,9 @@ gem 'cancan', '1.6.10'
 # gem 'redcarpet'
 # gem 'pygments.rb'
 
+# simple_form表单
+gem 'simple_form', '1.4.1'
+
 # 视频播放
 gem "mediaelement_rails"
 

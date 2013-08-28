@@ -11,8 +11,8 @@ FactoryGirl.define do
   end
 
 	factory :topic do
-		title "My Name"
-		content "My name is CKJ."
+		sequence(:title) {|n| "Title #{n}"}
+    sequence(:content) {|n| "content #{n} to Read"}
 		like_num 12
 		read_num 40
 		user

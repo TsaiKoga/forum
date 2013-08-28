@@ -41,7 +41,15 @@
 	</div>
 
 	<div class="sidebar">
-		<div class="box">
-		</div>
+		<% if user_signed_in? %>
+			<div class="box" style="text-align: center">
+					<%= link_to "发布帖子", new_topic_path, class: "btn btn-success"%>
+			</div>
+		<% else %>
+			<div class="box" style="text-align: center">
+				<h2>新手必读</h2>
+
+			</div>
+		<% end %>
 	</div>
 </div>

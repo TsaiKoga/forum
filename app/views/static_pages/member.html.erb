@@ -1,2 +1,21 @@
-<h1>StaticPages#member</h1>
-<p>Find me in app/views/static_pages/member.html.erb</p>
+<div id="main" class="container-fluid">
+	<div id="users">
+		<div class="info">
+			目前已经有<%= @users_count %>名会员加入Ruby Rails。
+		</div>
+
+		<div id="old_users" class="box clearfix user_list">
+			<h2>Top 100 老会员</h2>
+			<% @old_users.each do |user|%>
+				<div class="item span1">
+					<div class="avatar">
+						<%= link_to user_path(user.name) do %>
+							<%= image_tag(user.avatar.url(:normal), style: "width: 45px; height: 45px")%>
+						<% end %>
+					</div>
+					<div class="name"><%= link_to "#{truncate(user.name, length: 8)}", user_path(user.name), data_name: "#{user.name}" %></div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

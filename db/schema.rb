@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20130826094620) do
 
   create_table "topics", force: true do |t|
     t.string   "title"
-    t.integer  "read_num"
-    t.integer  "like_num"
+    t.integer  "read_num",   default: 0
+    t.integer  "like_num",   default: 0
     t.text     "content"
     t.integer  "user_id"
     t.datetime "created_at"

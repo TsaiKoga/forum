@@ -6,13 +6,13 @@ describe "StaticPages" do
 		subject {page}
 
     it "必须拥有标题\'Rails China\'和导航('首页')" do
-			visit '/'
+			visit root_path
 			expect(page).to have_content('Rails China')
 			expect(page).to have_content('首页')
     end
 
 		describe "显示高分帖子" do
-			let(:user) {FactoryGirl.create(:user)}
+			let(:user) { FactoryGirl.create(:user) }
 			before do
 				FactoryGirl.create(:topic, user: user, content: "My name is CKJ.", like_num: 3)
 				FactoryGirl.create(:topic, user: user, content: "what's your name?", like_num: 5)
@@ -34,11 +34,12 @@ describe "StaticPages" do
 	end
 
 	describe "会员(Member Page)" do
-		let(:user) {FactoryGirl.create(:user)}
+		let(:user) { FactoryGirl.create(:user) }
 
-		it "必须拥有" do
+		it "必须拥有会员的链接" do
 			visit member_path
-			expect(page).to have_link(user_path(user.name))
+			# expect(page).to have_selector("a", text: user.name)
+			expect(page).to have_selector("h2", text: "Top 100")
 		end
 	end
 

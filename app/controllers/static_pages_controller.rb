@@ -9,6 +9,8 @@ class StaticPagesController < ApplicationController
   end
 
   def member
+		@users_count = User.count
+		@old_users = User.old.take(100)
   end
 
 	def about

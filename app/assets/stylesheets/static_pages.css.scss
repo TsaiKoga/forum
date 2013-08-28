@@ -111,3 +111,26 @@ $gray: #778087;
 	font-weight: bold;
 	font-size: 12px;
 }
+/************ 会员 ****************/
+#users .info {
+	margin-bottom: 10px;
+	text-align: right;
+}
+
+.user_list {
+	padding-bottom: 20px;
+	margin-left: 0;
+	h2 {
+		font-weight: bold;
+		font-size: 14px;
+		margin: 0;
+	}
+	.span1 {
+		width: 70px;
+		text-align: center;
+		margin-top: 20px;
+		margin-left: 20px;
+	}
+}
+
+

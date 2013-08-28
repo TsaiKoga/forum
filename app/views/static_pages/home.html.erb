@@ -20,7 +20,7 @@
 						<%= image_tag(topic.user.avatar.url(:small))%>
 					<%end%>
 
-					<li><%= link_to "#{topic.title} ", topic_path(topic)%>
+					<li><%= link_to "#{truncate(topic.title, length: 25)}", topic_path(topic)%>
 					<span class="count"><%= "#{topic.replie_num}人回复"%></span></li>
 
 				<% end %>
@@ -35,7 +35,7 @@
 						<%= image_tag(topic.user.avatar.url(:small))%>
 					<%end%>
 
-					<li><%= link_to "#{topic.title} ", topic_path(topic) %>
+					<li><%= link_to "#{truncate(topic.title, length: 25)}", topic_path(topic) %>
 					<span class="count"><%= "#{topic.like_num}人喜欢"%></span></li>
 				<% end %>
 			</ul>

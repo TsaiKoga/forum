@@ -2,8 +2,8 @@ class CreateTopics < ActiveRecord::Migration
   def change
     create_table :topics do |t|
       t.string :title
-      t.integer :read_num
-      t.integer :like_num
+      t.integer :read_num, default: 0
+      t.integer :like_num, default: 0
       t.text :content
       t.integer :user_id
 
