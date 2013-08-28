@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
 		:url => "/images/:attachment/:id/:style.:extension",												# 读取路径
 		:styles => {:small => "16X16", :normal => "48X48", :large => "64X64", :big => "120X120"}
 
+
 	# 覆盖find_for_database_authentication方法
 	def self.find_first_by_auth_conditions(warden_conditions)
 		conditions = warden_conditions.dup

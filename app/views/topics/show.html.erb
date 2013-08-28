@@ -13,7 +13,9 @@
 			<div class="topic hentry">
 				<div class="infos">
 					<div class="pull-right">
-						<%= image_tag(@topic.user.avatar.url(:normal))%>
+						<%= link_to user_path(@topic.user.name) do %>
+							<%= image_tag(@topic.user.avatar.url(:normal))%>
+						<% end %>
 					</div>
 					<h1><%= @topic.title %></h1>
 					<div class="info_header">

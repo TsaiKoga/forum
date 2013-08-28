@@ -1,0 +1,47 @@
+<div id="main" class="container-fluid">
+	<div class="subnav">
+		<ul class="nav nav-tabs">
+			<li>
+				<%= link_to "个人信息", user_path(@user.name)%>
+			</li>
+
+			<li class="active">
+				<%= link_to "帖子", topics_user_path(@user.name)%>
+			</li>
+
+			<li>
+				<%= link_to "收藏", favorites_user_path(@user.name)%>
+			</li>
+
+			<li>
+				<%= link_to "记事本", notes_user_path(@user.name)%>
+			</li>
+
+		</ul>
+	</div>
+
+	<div class="content">
+		<div class="box">
+			<table class="node_topics table">
+				<tbody>
+					<tr class="head">
+						<td class="node">节点</td>
+						<td class="title">标题</td>
+						<td class="replies">回复/喜欢</td>
+					</tr>
+					<% @topics.each do |topic|%>
+						<tr>
+							<td class="node"></td>
+							<td class="title">
+								<%= link_to topic.title, topic_path(topic) %>
+								<%= topic.updated_ago%>
+							</td>
+							<td class="replies"><%= topic.replies_and_loves%></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<%= will_paginate @topics%>
+		</div>
+	</div>
+</div>

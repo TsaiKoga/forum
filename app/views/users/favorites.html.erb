@@ -2,19 +2,19 @@
 	<div class="subnav">
 		<ul class="nav nav-tabs">
 			<li>
-				<%= link_to "个人信息", user_path(current_user.try(:name))%>
+				<%= link_to "个人信息", user_path(@user.name)%>
 			</li>
 
 			<li>
-				<%= link_to "帖子", user_topics_path(current_user.try(:name))%>
+				<%= link_to "帖子", topics_user_path(@user.name)%>
 			</li>
 
 			<li class="active">
-				<%= link_to "收藏", user_favorites_path(current_user.try(:name))%>
+				<%= link_to "收藏", favorites_user_path(@user.name)%>
 			</li>
 
 			<li>
-				<%= link_to "记事本", user_notes_path(current_user.try(:name))%>
+				<%= link_to "记事本", notes_user_path(@user.name)%>
 			</li>
 
 		</ul>

@@ -94,7 +94,7 @@
 
 	<div class="sidebar">
 		<div class="box" style="text-align: center">
-			<%= link_to "" do%>
+			<%= link_to user_path(current_user.name) do%>
 				<%= image_tag(current_user.avatar.url(:big))%>
 			<%end%>
 			<p>如需修改头像</p>

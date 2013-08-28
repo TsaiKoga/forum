@@ -17,4 +17,17 @@ class Topic < ActiveRecord::Base
 		created_at
 	end
 
+	def updated_ago
+		updated_at
+	end
+
+	def replies_and_loves
+		"#{comments.count}/#{like_num}"
+	end
+
+	def increase_read_num
+		self.read_num += 1
+		self.save!
+	end
+
 end

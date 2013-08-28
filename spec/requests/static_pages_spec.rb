@@ -34,8 +34,11 @@ describe "StaticPages" do
 	end
 
 	describe "会员(Member Page)" do
+		let(:user) {FactoryGirl.create(:user)}
+
 		it "必须拥有" do
-			visit '/member'
+			visit member_path
+			expect(page).to have_link(user_path(user.name))
 		end
 	end
 

@@ -10,10 +10,19 @@ Forum::Application.routes.draw do
   match "/cool_site", to: "static_pages#cool_site", via: "get"
   match "/member", to: "static_pages#member", via: 'get'
 
-	match "/:name", to: "static_pages#index", via: 'get', as: 'user'
-	match "/:name/topics", to: "static_pages#topics", via: 'get', as: 'user_topics'
-	match "/:name/favorites", to: "static_pages#favorites", via: 'get', as: 'user_favorites'
-	match "/:name/notes", to: "static_pages#notes", via: 'get', as: 'user_notes'
+	# match "/:name", to: "static_pages#index", via: 'get', as: 'user'
+	# match "/:name/topics", to: "static_pages#topics", via: 'get', as: 'user_topics'
+	# match "/:name/favorites", to: "static_pages#favorites", via: 'get', as: 'user_favorites'
+	# match "/:name/notes", to: "static_pages#notes", via: 'get', as: 'user_notes'
+
+	resources :users, :path => "" do
+		member do
+			get :topics
+			get :favorites
+			get :notes
+		end
+	end
+
 
 
 end

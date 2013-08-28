@@ -6,5 +6,6 @@ class TopicsController < ApplicationController
 
 	def show
 		@topic = Topic.find(params[:id])
+		@topic.increase_read_num
 	end
 end
