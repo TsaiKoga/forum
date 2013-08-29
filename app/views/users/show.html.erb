@@ -67,6 +67,15 @@
 			</ul>
 		</div>
 
+		<div class="sidebar">
+			<% if current_user.admin? && !@user.admin? %>
+				<div class="box">
+					<h2>您是管理员，可进行以下操作：</h2>
+					<p>不喜欢?
+					<%= link_to("删除此帐号", @user, :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "btn btn-danger") %></p>
+				</div>
+			<% end %>
+		</div>
 	</div>
 
 </div>

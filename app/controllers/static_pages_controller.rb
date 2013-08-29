@@ -1,8 +1,8 @@
 # -*- encoding : utf-8 -*-
 class StaticPagesController < ApplicationController
 	def home
-		@high_likes_topics = Topic.find_high_likes_topics
-		@high_replies_topics = Topic.find_high_replies_topics
+		@high_likes_topics = Topic.find_high_likes_topics.take(10)
+		@high_replies_topics = Topic.find_high_replies_topics.take(10)
 	end
 
   def cool_site
@@ -10,7 +10,7 @@ class StaticPagesController < ApplicationController
 
   def member
 		@users_count = User.count
-		@old_users = User.old.take(100)
+		current_user.admin? ? @all_users = User.paginate(page: params[:page], per_page: 100) : @old_users = User.old.take(100)
   end
 
 	def about

@@ -49,7 +49,8 @@ class TopicsController < ApplicationController
 	def destroy
 		@topic = Topic.find(params[:id])
 		@topic.destroy_by(current_user)			# 删除，并记录删除人。
-		redirect_to(topics_path, :success => "成功删除帖子。" )
+		flash[:success] = "成功删除帖子。"
+		redirect_to topics_path
 	end
 
 end

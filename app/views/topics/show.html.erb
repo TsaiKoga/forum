@@ -43,9 +43,9 @@
 	<div class="sidebar">
 		<% if user_signed_in? %>
 			<div class="box" style="text-align: center">
-					<% if @topic.user.name == current_user.name %>
+					<% if @topic.user.name == current_user.name || current_user.admin? %>
 						<%= link_to "修改帖子", edit_topic_path(@topic), class: "btn btn-success"%>
-						<%= link_to "删除该帖", @topic, method: 'delete', class: "btn btn-danger"%>
+						<%= link_to "删除该帖", @topic, method: 'delete', class: "btn btn-danger", data: {confirm: "你确定吗？"} %>
 					<% end %>
 			</div>
 		<% else %>

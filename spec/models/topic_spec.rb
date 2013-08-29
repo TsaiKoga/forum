@@ -12,8 +12,8 @@ describe Topic do
 		it { should_not be_valid }
 	end
 
-	describe "title字数不能超过30" do
-		before {@topic.title = "a"*31}
+	describe "title字数不能超过100" do
+		before {@topic.title = "a"*101}
 		it { should_not be_valid }
 	end
 

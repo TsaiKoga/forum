@@ -5,16 +5,33 @@
 		</div>
 
 		<div id="old_users" class="box clearfix user_list">
-			<h2>Top 100 老会员</h2>
-			<% @old_users.each do |user|%>
-				<div class="item span1">
-					<div class="avatar">
-						<%= link_to user_path(user.name) do %>
-							<%= image_tag(user.avatar.url(:normal), style: "width: 45px; height: 45px")%>
-						<% end %>
+			<% unless current_user.admin? %>
+				<h2>Top 100 老会员</h2>
+				<% @old_users.each do |user|%>
+					<div class="item span1">
+						<div class="avatar">
+							<%= link_to user_path(user.name) do %>
+								<%= image_tag(user.avatar.url(:normal), style: "width: 45px; height: 45px")%>
+							<% end %>
+						</div>
+						<div class="name"><%= link_to "#{truncate(user.name, length: 8)}", user_path(user.name), data_name: "#{user.name}" %></div>
 					</div>
-					<div class="name"><%= link_to "#{truncate(user.name, length: 8)}", user_path(user.name), data_name: "#{user.name}" %></div>
-				</div>
+				<% end %>
+
+			<% else %>
+				<h2>显示所有会员</h2>
+				<% @all_users.each do |user|%>
+					<div class="item span1">
+						<div class="avatar">
+							<%= link_to user_path(user.name) do %>
+								<%= image_tag(user.avatar.url(:normal), style: "width: 45px; height: 45px")%>
+							<% end %>
+						</div>
+						<div class="name"><%= link_to "#{truncate(user.name, length: 8)}", user_path(user.name), data_name: "#{user.name}" %></div>
+					</div>
+				<% end %>
+				<%= will_paginate @all_users%>
+
 			<% end %>
 		</div>
 	</div>
