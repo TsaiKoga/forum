@@ -6,11 +6,19 @@
 				<%= f.input_field :title, :autofocus => true, class: 'span4' %>
 			</div>
 		</div>
+
+	  <div class="control-group edit_tools">
+      <label class="control-label"></label>
+      <div class="controls">
+        <%= render "editor_toolbar" %>
+      </div>
+    </div>
 		
 		<div class="control-group">
 			<%= f.label :正文, class: "control-label", required: true %>
 			<div class="controls">
 				<%= f.input_field :content, autofocus: true, style: "height: 400px;", class: "xxlarge" %>
+				<div id="preview" class='markdown_body' style="display:none"></div>
 			</div>
 		</div>
 	</fieldset>

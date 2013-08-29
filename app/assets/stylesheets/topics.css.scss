@@ -108,6 +108,44 @@ h1 {
 	line-height: 1.6em;
 }
 
+/* 预览和编辑 */
+.editor_toolbar {
+	// width: 588px;
+	.pills {
+		list-style: none;
+		li {
+			display: inline;
+		}
+		a {
+			-moz-border-radius: 8px;
+			-webkit-border-radius: 8px;
+			border-radius: 8px;
+			padding: 0 5px;
+			line-height: 18px;
+			font-size: 12px;
+			margin-right: 6px;
+			text-shadow: 0;
+			color: #444;
+			border: 1px solid #fff;
+		}
+		.active a {
+			background: #fff;
+			border: 1px solid #ddd;
+			color: #666;
+			text-shadow: 0;
+		}
+	}
+}
+#preview {
+	margin-top: 0px;
+	border: 1px solid #ccc;
+	padding: 4px;
+	min-height: 400px;
+	overflow: hidden;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
 /***** 边栏信息 ********/
 .sidebar ul, .sidebar ol {
 	margin: 0;
