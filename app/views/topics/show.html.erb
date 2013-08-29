@@ -27,7 +27,7 @@
 				</div>
 
 				<div class="body entry-content">
-					<p><%= @topic.content.html_safe %></p>
+					<p><%= raw(markdown(@topic.content).html_safe) %></p>
 				</div>
 
 				<div class="tools">
@@ -43,7 +43,10 @@
 	<div class="sidebar">
 		<% if user_signed_in? %>
 			<div class="box" style="text-align: center">
-					<%= link_to "发布帖子", new_topic_path, class: "btn btn-success"%>
+					<% if @topic.user.name == current_user.name %>
+						<%= link_to "修改帖子", edit_topic_path(@topic), class: "btn btn-success"%>
+						<%= link_to "删除该帖", @topic, method: 'delete', class: "btn btn-danger"%>
+					<% end %>
 			</div>
 		<% else %>
 			<div class="box" style="text-align: center">

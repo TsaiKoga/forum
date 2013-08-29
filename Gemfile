@@ -36,8 +36,8 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'cancan', '1.6.10'
 
 # markdown格式
-gem 'redcarpet'
-# gem 'pygments.rb'
+gem 'redcarpet', '2.1.1'
+gem 'pygments.rb', '0.5.2'
 
 # simple_form表单
 gem 'simple_form', '1.4.1'

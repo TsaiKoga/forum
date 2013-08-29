@@ -30,4 +30,17 @@ class Topic < ActiveRecord::Base
 		self.save!
 	end
 
+	# 假删除
+	def destroy_by(user)
+		false if user.nil?
+		return false if user.blank?
+    self.update_attribute(:who_deleted,user.name)
+    self.destroy
+	end
+
+	def destroy
+    super
+    # delete_notifiaction_mentions
+  end
+
 end
