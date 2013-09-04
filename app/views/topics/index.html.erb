@@ -57,7 +57,22 @@
 
 			<% if user_signed_in? %>
 				<div class="box" style="text-align: center">
-					<%= link_to "发布新帖", new_topic_path, class: "btn btn-success" %>
+					<div class="btn-group">
+						<%= link_to "发布新帖", new_topic_path, class: "btn btn-success" %>
+
+						<!-------------- 这个写法很奇怪 ---------->
+						<% @nodes = Node.all %>
+						<button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<% @nodes.each do |node| %>
+								<li><%= link_to(node.name, new_topic_path(:node => node.id)) %></li>
+							<% end %>
+						</ul>
+						<!-------------- 应该在加上缓存 ------------------>
+
+					</div>
 				</div>
 			<% else %>
 				<div class="box" style="text-align: center">

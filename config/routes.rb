@@ -15,6 +15,8 @@ Forum::Application.routes.draw do
 	# match "/:name/favorites", to: "static_pages#favorites", via: 'get', as: 'user_favorites'
 	# match "/:name/notes", to: "static_pages#notes", via: 'get', as: 'user_notes'
 
+	resources :nodes
+
 	resources :users, :path => "" do
 		member do
 			get :topics

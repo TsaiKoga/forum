@@ -1,6 +1,7 @@
 class Topic < ActiveRecord::Base
 	has_many :comments, dependent: :destroy
 	belongs_to :user
+	belongs_to :node
 
 	validates_presence_of :user_id, :content
 	validates :title, presence: true, length: {maximum: 100}

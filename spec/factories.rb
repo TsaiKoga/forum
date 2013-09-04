@@ -17,4 +17,5 @@ FactoryGirl.define do
 		read_num 40
 		user
 	end
+
 end
