@@ -3,6 +3,7 @@ namespace :db do
 	desc "增加基础数据"
 	task populate: :environment do
 		make_users
+		make_sections
 		make_nodes
 		make_topics
 	end
@@ -22,13 +23,22 @@ def make_users
 	end
 end
 
+def make_sections
+	3.times do |n|
+		name = Faker::Name.name
+		sort = Random.rand(n+3)
+		Section.create!(name: name, sort: sort)
+	end
+end
+
 def make_nodes
-	5.times do |n|
+	15.times do |n|
 		name = Faker::Name.name
 		summary = Faker::Lorem.paragraph[0..10]
 		sort = Random.rand(n+2)
 		topics_count = Random.rand(n+4)
-		Node.create!(name: name, summary: summary, sort: sort, topics_count: topics_count)
+		section_id = Random.rand(1..3)
+		Node.create!(name: name, summary: summary, sort: sort, topics_count: topics_count, section_id: section_id)
 	end
 end
 

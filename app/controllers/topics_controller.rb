@@ -12,10 +12,14 @@ class TopicsController < ApplicationController
 
 	def new
 		@topic = Topic.new
+		unless params[:node].blank?
+			@topic.node_id = params[:node]
+			@node = Node.find_by_id(params[:node])
+		end
 	end
 
 	def create
-		pt = params[:topic].permit(:title, :content)
+		pt = params[:topic].permit(:title, :content, :node_id)
 		@topic = Topic.new(pt)
 		@topic.user_id = current_user.id
 		if @topic.save then

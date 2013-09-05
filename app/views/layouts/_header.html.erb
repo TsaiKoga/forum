@@ -7,7 +7,9 @@
 					</li>
 					<li class="first"><%= link_to "社区", topics_path %></li>
 					<li><%= link_to "酷站", cool_site_path %></li>
-					<li class="last"><%= link_to "会员", member_path %></li>
+					<% unless current_user.nil? %>
+						<li class="last"><%= link_to "会员", member_path %></li>
+					<% end %>
 				</ul>
 
 				<%= form_tag("/search", method: "get", class: "navbar-search pull-left") do%>

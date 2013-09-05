@@ -10,7 +10,7 @@ class StaticPagesController < ApplicationController
 
   def member
 		@users_count = User.count
-		current_user.admin? ? @all_users = User.paginate(page: params[:page], per_page: 100) : @old_users = User.old.take(100)
+		current_user.try(:admin?) ? @all_users = User.paginate(page: params[:page], per_page: 100) : @old_users = User.old.take(100)
   end
 
 	def about

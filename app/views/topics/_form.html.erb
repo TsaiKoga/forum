@@ -1,30 +1,23 @@
 <%= simple_form_for @topic, html: {class: 'form-horizontal'} do |f| %>
-	<fieldset>
-		<div class="control-group">
-			<%= f.label :标题, class: "control-label", required: true %>
-			<div class="controls">
-				<%= f.input_field :title, :autofocus => true, class: 'span4' %>
-			</div>
-		</div>
+	<div class="control-group">
+		<span class="node_select span2">
+			<%= render_topic_node_select_tag(@topic)%>
+		</span>
 
-	  <div class="control-group edit_tools">
-      <label class="control-label"></label>
-      <div class="controls">
-        <%= render "editor_toolbar" %>
-      </div>
-    </div>
-		
-		<div class="control-group">
-			<%= f.label :正文, class: "control-label", required: true %>
-			<div class="controls">
-				<%= f.input_field :content, autofocus: true, style: "height: 400px;", class: "xxlarge" %>
-				<div id="preview" class='markdown_body' style="display:none"></div>
-			</div>
-		</div>
-	</fieldset>
+		<%= f.input_field :title, autofocus: true, class: 'span5', placeholder: "在这里填写标题" %>
+	</div>
 
-	<div class="form-actions">
-		<%= f.button :submit, "保存", class: 'btn btn-primary' %>
+	<div class="control-group edit_tools">
+		<%= render "editor_toolbar" %>
+	</div>
+	
+	<div class="control-group">
+		<%= f.input_field :content, autofocus: true, style: "height: 400px;", class: "topic_editor", placeholder: "在这里填写标题" %>
+		<div id="preview" class='markdown_body' style="display:none"></div>
+	</div>
+
+	<div class="control-group">
+		<%= f.button :submit, "保存", class: 'btn btn-primary', data: { disable_with: "正在保存..." } %>
 		<%= link_to("取消", @topic.id.blank? ? root_path : topic_path(@topic), class: 'btn') %>
 	</div>
 <% end %>
