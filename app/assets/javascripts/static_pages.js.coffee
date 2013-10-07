@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready -> 
+# 向上滚动
 	$("a.go_top").click () -> 
 		$('html, body').animate({scrollTop: 0}, 300)
 		return false
@@ -13,3 +14,4 @@ $(document).ready ->
 			$('a.go_top').show()
 		else
 			$('a.go_top').hide()
+

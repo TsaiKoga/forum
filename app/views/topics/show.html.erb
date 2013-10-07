@@ -30,7 +30,11 @@
 					<p><%= raw(markdown(@topic.content).html_safe) %></p>
 				</div>
 
-				<div class="tools">
+				<div class="tools pull-right">
+					<%= link_to "#", class: "likeable" do %>
+						<i class="icon like-small"></i>
+						<span><%= "#{@topic.like_num}人喜欢"%></span>
+					<% end %>
 				</div>
 			</div>
 		</div>

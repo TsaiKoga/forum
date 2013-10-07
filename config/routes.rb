@@ -7,6 +7,7 @@ Forum::Application.routes.draw do
 	resources :nodes
 
 	match "/topics/node:id", to: "topics#node", via: "get"		# node:id
+	match "/topics/preview", to: "topics#preview", via: "post"
 
 	match "/about", to: "static_pages#about", via: "get"
 

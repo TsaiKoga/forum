@@ -29,6 +29,5 @@ class UsersController < ApplicationController
 	protected
 		def find_user
 			@user = User.where(:name => params[:id]).first
-			render_404 if @user.nil?
 		end
 end

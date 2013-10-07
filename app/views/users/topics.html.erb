@@ -31,7 +31,10 @@
 					</tr>
 					<% @topics.each do |topic|%>
 						<tr>
-							<td class="node"></td>
+							<td class="node">
+								<%= link_to topic.node.name, "#" %>
+							</td>
+
 							<td class="title">
 								<%= link_to topic.title, topic_path(topic) %>
 								<%= topic.updated_ago%>

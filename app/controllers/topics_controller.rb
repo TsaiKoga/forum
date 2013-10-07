@@ -57,4 +57,13 @@ class TopicsController < ApplicationController
 		redirect_to topics_path
 	end
 
+	# 点击产生预览
+	def preview
+		@body = params[:body]
+
+		respond_to do |format|
+			format.json
+		end
+	end
+
 end

@@ -146,6 +146,13 @@ h1 {
 	-moz-border-radius: 3px;
 	border-radius: 3px;
 }
+
+.new_topic #preview, 
+.edit_topic #preview, 
+.edit_reply #preview {
+	width: 99%;
+}
+
 .topic_editor {
 	width: 99%;
 	height: 400px;
@@ -154,6 +161,12 @@ h1 {
 	margin-left: 0;
 	margin-right: 6px;
 	width: 143px;
+}
+
+.topics .tools a:link,
+.topics .tools a:visited {
+	margin-left: 5px;
+	text-decoration: none;
 }
 /***** 边栏信息 ********/
 .form-horizontal .edit_tools { 
@@ -169,4 +182,14 @@ h1 {
 input.span5, textarea.span5 {
 	width: 460px;
 }
-
+/******** 预览功能 ************/
+#preview {
+	width: 920px;
+	height: 510px;
+	border: 1px solid #CCCCCC;
+	border-radius: 3px 3px 3px 3px;
+	-moz-border-radius: 3px 3px 3px 3px;
+	padding: 5px;
+	display: none;
+	overflow: scroll;
+}
