@@ -25,9 +25,9 @@
 						</div>
 
 						<div class="right_info">
-							<% unless topic.comments.empty? %>
+							<% unless topic.replies.empty? %>
 								<div class="replies pull-right">
-									<%= link_to "#{topic.comments.count}", class: "count"%>
+									<%= link_to "#{topic.replies.count}", class: "count"%>
 								</div>
 							<% end %>
 

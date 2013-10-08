@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Topic < ActiveRecord::Base
-	has_many :comments, dependent: :destroy
+	has_many :replies, dependent: :destroy
 	belongs_to :user
 	belongs_to :node
 
@@ -12,7 +12,7 @@ class Topic < ActiveRecord::Base
 	scope :find_high_replies_topics, order("read_num DESC")
 
 	def replie_num
-		comments.count
+		replies.count
 	end
 
 	def created_ago
@@ -28,7 +28,7 @@ class Topic < ActiveRecord::Base
 	end
 
 	def replies_and_loves
-		"#{comments.count}/#{like_num}"
+		"#{replies.count}/#{like_num}"
 	end
 
 	def increase_read_num

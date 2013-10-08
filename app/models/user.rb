@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:login]
 
 	has_many :topics, dependent: :destroy
-	has_many :comments
+	has_many :replies
 
 	validates :name, uniqueness: {case_sensitive: false}
 	validates :signature, length: {maximum:  25}

@@ -39,10 +39,22 @@
 			</div>
 		</div>
 
-		<% if @topic.comments.empty? %>
+		<% if @topic.replies.empty? %>
 			<div class="no_result">暂无回复</div>
+		<% else %>
 		<% end %>
+
+			<div id="replies" class="box box_gray">
+				<div class="total">
+					共收到<b><%= %></b>条回复
+				</div>
+
+				<div class="items">
+				</div>
+			</div>
+
 	</div>
+
 
 	<div class="sidebar">
 		<% if user_signed_in? %>

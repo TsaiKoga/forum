@@ -19,4 +19,10 @@ FactoryGirl.define do
 		user
 	end
 
+	factory :reply do
+		sequence(:content) {|n| "comment #{n}"}
+		like_num 11
+		user
+		topic
+	end
 end
