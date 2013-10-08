@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Topic < ActiveRecord::Base
 	has_many :comments, dependent: :destroy
 	belongs_to :user
@@ -20,6 +21,10 @@ class Topic < ActiveRecord::Base
 
 	def updated_ago
 		updated_at
+	end
+
+	def date_time
+		created_at.strftime("%Y年%m月%d日,%H:%M")
 	end
 
 	def replies_and_loves

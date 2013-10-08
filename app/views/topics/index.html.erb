@@ -40,7 +40,7 @@
 									<%= link_to "", class: "node"%>
 									<%= link_to "#{topic.user.name}", user_path(topic.user.name)%>
 									<em>
-										于<abbr class="timeago" title="#{topic.created_at}"><%= topic.created_ago%></abbr>发布
+										于<abbr class="timeago" title="#{topic.created_at}"><%= topic.date_time%></abbr>发布
 									</em>
 								</div>
 							</div>
