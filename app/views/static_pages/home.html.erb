@@ -21,7 +21,7 @@
 					<%end%>
 
 					<li><%= link_to "#{truncate(topic.title, length: 25)}", topic_path(topic)%>
-					<span class="count"><%= "#{topic.replie_num}人回复"%></span></li>
+					<span class="count"><%= "#{topic.replies_count}人回复"%></span></li>
 
 				<% end %>
 			</ul>

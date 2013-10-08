@@ -42,17 +42,8 @@
 		<% if @topic.replies.empty? %>
 			<div class="no_result">暂无回复</div>
 		<% else %>
+			<%= render "replies" %>
 		<% end %>
-
-			<div id="replies" class="box box_gray">
-				<div class="total">
-					共收到<b><%= %></b>条回复
-				</div>
-
-				<div class="items">
-				</div>
-			</div>
-
 	</div>
 
 

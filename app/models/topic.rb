@@ -11,7 +11,7 @@ class Topic < ActiveRecord::Base
 	scope :find_high_likes_topics, order("like_num DESC")
 	scope :find_high_replies_topics, order("read_num DESC")
 
-	def replie_num
+	def replies_count
 		replies.count
 	end
 

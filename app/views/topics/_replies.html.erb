@@ -1,0 +1,31 @@
+<div id="replies" class="box box_gray">
+	<div class="total">
+		共收到<b><%= @replies_count %></b>条回复
+	</div>
+
+	<div class="items">
+		<% @replies.each_with_index do |reply, index|%>
+			<div class="reply", id=<%= "reply#{index+1}"%>>
+				<div class="face pull-left">
+					<%= link_to user_path(reply.user.name) do %>
+						<%= image_tag(reply.user.avatar.url(:normal))%>
+					<% end %>
+				</div>
+
+				<div class="infos">
+					<div class="info">
+						<span class="name"><%= link_to "#{reply.user.name}", user_path(reply.user.name)%></span>
+						<span class="time">
+							<%= link_to "#{index+1}楼", "#reply#{index+1}", class: "reply-floor" %>, &nbsp
+							<abbr class="timeago" title=<%"#{reply.created_at}"%>><%=reply.created_at%></abbr>
+						</span>
+
+						<div class="body"><%= reply.content %></div>
+					</div>
+				</div>
+
+			</div>
+		<% end %>
+	</div>
+
+</div>

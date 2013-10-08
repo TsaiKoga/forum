@@ -8,6 +8,8 @@ class TopicsController < ApplicationController
 	def show
 		@topic = Topic.find(params[:id])
 		@topic.increase_read_num
+		@replies = @topic.replies
+		@replies_count = @topic.replies.count
 	end
 
 	def new
