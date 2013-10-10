@@ -1,0 +1,20 @@
+<%= simple_form_for Reply.new, url: topic_replies_path(@topic), html: {class: 'form-horizontal new_reply', id: "new_reply"} do |f| %>
+	<div class="edit_tools">
+		<%= render "editor_toolbar" %>
+	</div>
+	
+	<!---- 注意：这里为了用js实现预览，而采用id与topic相同，但是topic编辑时，不会有reply编辑；反之，亦然。---->
+	<%= f.input_field :content, autofocus: true, class: "topic_editor span10", id: "topic_content", row: "4", tabindex: "1", placeholder: "在这里写评论" %>
+	<div id="preview" class='markdown_body' style="display:none"></div>
+
+	<div class="submit_buttons">
+		<%= f.button :submit, "提交回复", class: 'btn btn-primary', tabindex: "2", data: { disable_with: "正在提交..." } %>
+	</div>
+
+	<span class="remention">
+		<ul>
+			<li>支持Markdown格式,<strong>**粗体**</strong>、~删除线~~、`单行代码</li>
+			<li>支持表情，见 <a href="http://www.emoji-cheat-sheet.com/" target="_blank">Emoji cheat sheet</a></li>
+		</ul>
+	</span>
+<% end %>

@@ -1,3 +1,91 @@
 // Place all the styles related to the replies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$grayLight: #999;
+$whiteDark: #ddd;
+$whiteLightDark : #eee;
+$gray: #778087;
+$white: #fff;
+
+/********** 回复 *************/
+#replies {
+	.total {
+		padding: 0 10px 6px 10px;
+		border-bottom: 1px solid $whiteDark;
+		color: $grayLight;
+		margin: 0 -10px;
+	}
+	.reply {
+		border-bottom: 1px solid #DDD;
+		padding: 8px 10px;
+		margin: 0 -10px;
+		background: $white;
+		.face {
+			padding-right: 8px;
+			width: 48px;
+			margin-left: 0;
+		}
+		.info {
+			font-size: 12px;
+			color: #bbb;
+			a:link, a:visited {
+				color: $grayLight;
+			}
+			.name a {
+						color: #888;
+						text-decoration: none;
+						font-weight: bold;
+						margin-right: 8px;
+			}
+			.time a.reply-floor {
+				margin-right: 0;
+				color: #bbb;
+				text-decoration: none;
+			}
+		} 
+	}
+}
+
+topics .topic .body, 
+#replies .reply .body, .markdown_body {
+	position: relative;
+	line-height: 1.8em;
+	font-size: 14px;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	p {
+		font-size: 14px;
+		margin-bottom: 20px;
+		line-height: 1.6em;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
+
+/***** 编辑回复窗口 *****/
+#reply.form {
+	margin-bottom: 0px;
+	.editor_toolbar {
+		width: 588px;
+	}
+	position: relative;
+	.submit_buttons {
+		position: absolute;
+		right: 10px;
+		top: 42px;
+	}
+	form textarea {
+		width: 558px;
+		margin-bottom: 10px;
+		height: 72px;
+	}
+	/** 回复预览窗口 **/
+	#preview {
+		width: 558px;
+		height: 72px;
+		margin-bottom: 10px;
+		min-height: 72px;
+	}
+} 

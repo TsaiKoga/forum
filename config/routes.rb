@@ -3,11 +3,9 @@ Forum::Application.routes.draw do
 
 	root to: 'static_pages#home'
 
-	resources :topics
 	resources :nodes
 
 	match "/topics/node:id", to: "topics#node", via: "get"		# node:id
-	match "/topics/preview", to: "topics#preview", via: "post"
 
 	match "/about", to: "static_pages#about", via: "get"
 
@@ -18,6 +16,15 @@ Forum::Application.routes.draw do
 	# match "/:name/topics", to: "static_pages#topics", via: 'get', as: 'user_topics'
 	# match "/:name/favorites", to: "static_pages#favorites", via: 'get', as: 'user_favorites'
 	# match "/:name/notes", to: "static_pages#notes", via: 'get', as: 'user_notes'
+	resources :topics do
+		member do
+			post :reply
+		end
+		collection do
+			post :preview
+		end
+		resources :replies
+	end
 
 
 	# 保持 User 的 routes 在所有路由的最后，以便于可以让用户名在根目录下面使用，而又不影响到其他的 routes
