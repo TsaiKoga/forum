@@ -8,7 +8,6 @@ class RepliesController < ApplicationController
 		@reply.user_id = current_user.id
 		if @reply.save
 			flash[:success] = "成功回复！"
-			# redirect_to(topic_path(@topic))
 			respond_to do |format|
 				format.js
 			end
@@ -26,6 +25,7 @@ class RepliesController < ApplicationController
 
 		if @reply.update_attributes(reply_params)
 			flash[:success] = "编辑成功！"
+			redirect_to(topic_path(@topic))
 		else
 			flash[:success] = "编辑失败！"
 		end

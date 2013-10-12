@@ -25,7 +25,7 @@
 								<span>喜欢</span>
 							<% end %>
 							<% if current_user %>
-								<%= link_to "编辑", "#", class: "icon small_edit" %>
+								<%= link_to "编辑", edit_topic_reply_path(@topic, reply), class: "icon small_edit" %>
 							<% end %>
 							<%= link_to "回复", "#", class: "icon small_reply" %>
 						</span>
