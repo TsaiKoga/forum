@@ -8,7 +8,10 @@ class RepliesController < ApplicationController
 		@reply.user_id = current_user.id
 		if @reply.save
 			flash[:success] = "成功回复！"
-			redirect_to(topic_path(@topic))
+			# redirect_to(topic_path(@topic))
+			respond_to do |format|
+				format.js
+			end
 		else
 			flash[:failure] = "回复失败！"
 		end

@@ -1,0 +1,35 @@
+<% cache([reply]) do %>
+	<%
+		floor = reply_counter + 1
+	%>
+	<div class="reply" id="reply<% floor %>">
+		<div class="face pull-left">
+			<%= link_to user_path(reply.user.name) do %>
+				<%= image_tag(reply.user.avatar.url(:normal))%>
+			<% end %>
+		</div>
+
+		<div class="infos">
+			<div class="info">
+				<span class="name"><%= link_to "#{reply.user.name}", user_path(reply.user.name)%></span>
+				<span class="time">
+					<%= link_to "#{floor}楼", "#reply#{floor}", class: "reply-floor" %>, &nbsp
+					<abbr class="timeago" title=<%"#{reply.created_at}"%>><%=reply.created_at%></abbr>
+				</span>
+				<span class="opts">
+					<%= link_to "#", class: "likable" do %>
+						<i class="icon small_like"></i>
+						<span>喜欢</span>
+					<% end %>
+					<% if current_user %>
+						<%= link_to "编辑", "#", class: "icon small_edit" %>
+					<% end %>
+					<%= link_to "回复", "#", class: "icon small_reply" %>
+				</span>
+
+				<div class="body"><%= reply.content %></div>
+			</div>
+		</div>
+			
+	</div>
+<% end %>

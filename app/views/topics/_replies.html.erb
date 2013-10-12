@@ -19,6 +19,16 @@
 							<%= link_to "#{index+1}楼", "#reply#{index+1}", class: "reply-floor" %>, &nbsp
 							<abbr class="timeago" title=<%"#{reply.created_at}"%>><%=reply.created_at%></abbr>
 						</span>
+						<span class="opts">
+							<%= link_to "#", class: "likable" do %>
+								<i class="icon small_like"></i>
+								<span>喜欢</span>
+							<% end %>
+							<% if current_user %>
+								<%= link_to "编辑", "#", class: "icon small_edit" %>
+							<% end %>
+							<%= link_to "回复", "#", class: "icon small_reply" %>
+						</span>
 
 						<div class="body"><%= reply.content %></div>
 					</div>

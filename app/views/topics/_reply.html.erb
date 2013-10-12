@@ -1,4 +1,4 @@
-<%= simple_form_for Reply.new, url: topic_replies_path(@topic), html: {class: 'form-horizontal new_reply', id: "new_reply"} do |f| %>
+<%= simple_form_for Reply.new, url: topic_replies_path(@topic), remote: true, html: {class: 'form-horizontal new_reply', id: "new_reply"} do |f| %>
 	<div class="edit_tools">
 		<%= render "editor_toolbar" %>
 	</div>
