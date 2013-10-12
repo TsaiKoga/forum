@@ -35,7 +35,11 @@ class RepliesController < ApplicationController
 		@reply = Reply.find(params[:id])
 
 		if @reply.destroy
+			flash[:success] = "删除成功！"
+			redirect_to(topic_path(@topic))
 		else
+			flash[:success] = "删除失败！"
+			redirect_to(topic_path(@topic))
 		end
 	end
 
