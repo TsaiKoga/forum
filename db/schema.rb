@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131008071230) do
+ActiveRecord::Schema.define(version: 20131017044918) do
 
   create_table "nodes", force: true do |t|
     t.string   "name"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20131008071230) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "section_id"
+  end
+
+  create_table "notification_bases", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "target_id"
+    t.string   "target_type"
+    t.boolean  "read",        default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "replies", force: true do |t|

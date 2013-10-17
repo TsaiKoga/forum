@@ -3,9 +3,17 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+	# 给所有视图使用的方法
+	helper_method :unread_notify_count
 
 	# 用来给devise增加字段的，允许发送后台
 	before_filter :configure_permitted_parameters, if: :devise_controller?
+
+																									 
+	def unread_notify_count
+		return 0 if current_user.blank?
+		@unread_notify_count ||= current_user.notifications.unread.count
+	end
 
   protected
 	# 健壮参数:可以指定需要哪些请求参数，允许传入哪些请求参数。

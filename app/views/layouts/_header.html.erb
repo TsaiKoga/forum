@@ -20,7 +20,7 @@
 					<%if user_signed_in?%>
 						<li>
 							<%= link_to "" do%>
-								<span class="badge">0</span>
+								<span class="badge"><%= unread_notify_count%></span>
 							<%end%>
 						</li>
 						<li class="dropdown">

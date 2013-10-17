@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
 	has_many :topics, dependent: :destroy
 	has_many :replies
+	has_many :notifications, class_name: "Notification::Base", dependent: :destroy, as: :target
+	
 
 	validates :name, uniqueness: {case_sensitive: false}
 	validates :signature, length: {maximum:  25}
