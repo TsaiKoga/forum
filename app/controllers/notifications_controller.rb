@@ -15,4 +15,14 @@ class NotificationsController < ApplicationController
 		end
 	end
 
+	def clear
+		@notification = current_user.notifications
+		if @notification.delete_all
+			respond_to do |format|
+				format.html { redirect_to notifications_path }
+				format.js
+			end
+		end
+	end
+
 end
