@@ -19,7 +19,7 @@
 				<ul class="nav pull-right" id="userbar">
 					<%if user_signed_in?%>
 						<li>
-							<%= link_to "" do%>
+							<%= link_to notifications_path do%>
 								<span class="badge"><%= unread_notify_count%></span>
 							<%end%>
 						</li>

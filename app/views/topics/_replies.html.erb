@@ -30,7 +30,7 @@
 							<%= link_to "回复", "#", class: "icon small_reply" %>
 						</span>
 
-						<div class="body"><%= reply.content %></div>
+						<div class="body"><%=raw markdown(reply.content.html_safe) %></div>
 					</div>
 				</div>
 

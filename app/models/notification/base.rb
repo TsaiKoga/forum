@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class Notification::Base < ActiveRecord::Base
-	belongs_to :user, polymorphic: true
+	belongs_to :user
 
 	scope :unread, where(read: false)
 	after_create :send_to_author
@@ -13,7 +13,16 @@ class Notification::Base < ActiveRecord::Base
 		end
 	end
 
-	def content_path
-		""
+	def read_situation
+		if self.read then
+			"已读提醒："
+		else
+			"未读提醒："
+		end
 	end
+
+	def notify_background
+		self.read ? "" : "background-color: #dee;"
+	end
+
 end

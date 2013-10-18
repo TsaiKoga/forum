@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
 	has_many :topics, dependent: :destroy
 	has_many :replies
-	has_many :notifications, class_name: "Notification::Base", dependent: :destroy, as: :target
+	has_many :notifications, class_name: "Notification::TopicReply", dependent: :destroy
 	
 
 	validates :name, uniqueness: {case_sensitive: false}
@@ -37,5 +37,17 @@ class User < ActiveRecord::Base
 
 	def created_date
 		created_at.strftime("%Y年%m月%d日")
+	end
+
+	# 所有这个用户并“未读”的提醒更新为“已读”
+	def read_notifications(notifications)
+		unread_ids = notifications.find_all{ |notification| !notification.read? }.map(&:id)	# 收集所有“未读”的提醒的id
+		if unread_ids.any?
+			Notification::Base.where({
+				user_id: id,
+				id:      unread_ids,																													# 设置id范围在数组unread_ids内
+				read:    false
+			}).update_all(read: true, updated_at: Time.now)
+		end
 	end
 end

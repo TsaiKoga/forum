@@ -1,0 +1,38 @@
+// Place all the styles related to the Notifications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$grayLine: #dddddd;
+$grayFont: #999999;
+
+#notifications {
+	.total {
+		text-align: right;
+		color: $grayFont;
+		border-bottom: 1px solid $grayLine;
+		color: $grayFont;
+		span {
+			display: inline;
+			color: black;
+		}
+	}
+	.items {
+		.notify {
+			border-bottom: 1px solid $grayLine;
+			padding: 8px 10px;
+			margin: 0 -10px;
+			span {
+				text-align: left;
+				strong {
+					color: $grayFont;
+				}
+			}
+			.avatar {
+				padding: 0px 20px;
+				word-wrap: break-word;
+				text-overflow: ellipsis;
+				line-height: 1.8em; 
+				margin-top:-6px;
+			}
+		}
+	}
+}

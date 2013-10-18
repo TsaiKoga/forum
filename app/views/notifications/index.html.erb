@@ -1,0 +1,36 @@
+<% provide(:title, 'Rails China | 提醒')%>
+
+<div class="hidden-phone">
+	<ul class="breadcrumb">
+		<li><%=link_to "Home", root_path %><span class="divider">/</span></li>
+		<li><%=link_to "提醒", notifications_path %></li>
+	</ul>
+</div>
+
+<div id="main" class="container-fuild">
+	<div id="notifications" class="box box_gray">
+		<div class="total"><span>通知提醒 </span>(<%= @notifications.count %>条) [<%= @notifications.unread.count %>条未读]</div>
+		<div class="items">
+			<% @notifications.each do |notify|%>
+				<div class="notify" style="<%= notify.notify_background %>">
+					<span>
+						<strong ><%= notify.read_situation %></strong>
+						来自用户<%= link_to notify.target.user.name, user_path(notify.target.user.name) %>
+					</span>
+
+
+					<div class="avatar pull-left">
+						<%= link_to user_path(notify.target.user.name) do%>
+							<%image_tag(notify.target.user.avatar.url(:normal))%>
+						<% end %>
+					</div>
+
+					<div class="notify-content"><%=link_to "#{notify.notify_hash[:content]}", notify.notify_hash[:content_path]%></div>
+
+				</div>
+			<% end %>
+		</div>
+		<%= will_paginate @notifications%>
+		</div>
+	</div>
+</div>

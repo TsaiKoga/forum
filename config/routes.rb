@@ -26,6 +26,9 @@ Forum::Application.routes.draw do
 		resources :replies
 	end
 
+	resources :notifications, only: [:index, :destroy] do
+	end
+
 	# 保持 User 的 routes 在所有路由的最后，以便于可以让用户名在根目录下面使用，而又不影响到其他的 routes
 	resources :users, :path => "" do
 		member do
