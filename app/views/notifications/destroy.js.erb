@@ -1,0 +1,9 @@
+$("#"+"<%= @notification.anchor %>").fadeOut('normal', function() {
+	$(this).remove();
+})
+
+$("#userbar li .notifications-count .badge").remove();
+$("#userbar li .notifications-count").append("<span class='badge'><%= unread_notify_count%></span>")
+
+$(".tool .total").remove()
+$(".tool a").after("<div class='total'><span>通知提醒 </span>(<%= his_notifications.count %>条) [<%= unread_notifications.count %>条未读]</div>")

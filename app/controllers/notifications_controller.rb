@@ -4,4 +4,15 @@ class NotificationsController < ApplicationController
 		@notifications = current_user.notifications.paginate(page: params[:page], per_page: 15)
 		current_user.read_notifications(@notifications)
 	end
+
+	def destroy
+		@notification = current_user.notifications.find params[:id]
+		if @notification.destroy
+			respond_to do |format|
+				format.html { redirect_to notifications_path }
+				format.js 
+			end
+		end
+	end
+
 end

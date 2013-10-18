@@ -25,4 +25,7 @@ class Notification::Base < ActiveRecord::Base
 		self.read ? "" : "background-color: #dee;"
 	end
 
+	def anchor
+		"notification-#{id}"
+	end
 end

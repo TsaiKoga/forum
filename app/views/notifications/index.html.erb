@@ -9,10 +9,14 @@
 
 <div id="main" class="container-fuild">
 	<div id="notifications" class="box box_gray">
-		<div class="total"><span>通知提醒 </span>(<%= @notifications.count %>条) [<%= @notifications.unread.count %>条未读]</div>
+		<div class="tool">
+			<%= link_to "清空", "", method: "POST", data: {disable_with: "清空中..."}, class: "btn btn-danger"%>
+			<div class="total"><span>通知提醒 </span>(<%= @notifications.count %>条) [<%= unread_notifications.count %>条未读]</div>
+		</div>
+
 		<div class="items">
 			<% @notifications.each do |notify|%>
-				<div class="notify" style="<%= notify.notify_background %>">
+				<div id="<%= notify.anchor%>" class="notify" style="<%= notify.notify_background %>">
 					<span>
 						<strong ><%= notify.read_situation %></strong>
 						来自用户<%= link_to notify.target.user.name, user_path(notify.target.user.name) %>
@@ -27,6 +31,7 @@
 
 					<div class="notify-content"><%=link_to "#{notify.notify_hash[:content]}", notify.notify_hash[:content_path]%></div>
 
+					<div class="delete"><%= link_to "删除提醒", notification_path(notify), remote: true, method: "DELETE", data: {disable_with: "删除中..."}, class: "btn btn-small btn-danger" %></div>
 				</div>
 			<% end %>
 		</div>
