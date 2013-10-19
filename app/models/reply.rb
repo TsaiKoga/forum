@@ -7,7 +7,7 @@ class Reply < ActiveRecord::Base
 
   default_scope -> { order('created_at ASC') }
 
-	validates :content, presence: true, length: {maximum: 150}
+	validates :content, presence: true, length: {maximum: 250}
 	validates_presence_of :user_id, :topic_id
 
 	# 通知文章作者(带参数的回调)
@@ -15,6 +15,7 @@ class Reply < ActiveRecord::Base
 		self.send_topic_reply_notification(self.id)
 	end
 
+	# 创建通知
 	def send_topic_reply_notification(reply_id)
 		reply = Reply.find_by_id(reply_id)
 		return if reply.blank?
@@ -30,4 +31,15 @@ class Reply < ActiveRecord::Base
 
 		true
 	end
+
+	# 处理回复信息，将有@和#的添加链接
+	def disposal_floor_and_at
+		floor = /#\d+楼/.match(self.content).to_s.gsub(/[^\d]/, '')
+		self.content.gsub!(/#\d+楼/, "<a href=\"#reply#{floor}\" class='at_floor' data-floor=\"#{floor}\">##{floor}楼</a>")
+
+		at_who = /@\S+/.match(self.content).to_s.gsub(/^@/, '')
+		self.content.gsub!(/@\S+/, "<a href=\"/#{at_who}\" class='at_who' title=\"@#{at_who}\"><i>@</i>#{at_who}</a>")
+	end
+
+	self.per_page = 15
 end

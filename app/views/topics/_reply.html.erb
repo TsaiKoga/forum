@@ -4,7 +4,7 @@
 	</div>
 	
 	<!---- 注意：这里为了用js实现预览，而采用id与topic相同，但是topic编辑时，不会有reply编辑；反之，亦然。---->
-	<%= f.input_field :content, autofocus: true, class: "topic_editor span10", id: "topic_content", row: "4", tabindex: "1", placeholder: "在这里写评论" %>
+	<%= f.input_field :content, autofocus: true, class: "topic_editor span10", id: "reply_body", row: "4", tabindex: "1", placeholder: "在这里写评论" %>
 	<div id="preview" class='markdown_body' style="display:none"></div>
 
 	<div class="submit_buttons">

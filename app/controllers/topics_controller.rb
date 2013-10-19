@@ -8,7 +8,8 @@ class TopicsController < ApplicationController
 	def show
 		@topic = Topic.find(params[:id])
 		@topic.increase_read_num
-		@replies = @topic.replies
+		@replies = @topic.replies.paginate(page: params[:page], per_page: 15)
+		@page = (params[:page].to_i == 0 ? 1 : params[:page].to_i)
 		@replies_count = @topic.replies.count
 	end
 

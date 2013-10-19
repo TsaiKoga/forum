@@ -60,7 +60,7 @@ def make_replies
 	15.times do |n|
 		content = Faker::Lorem.sentences(4)
 		like_num = Random.rand(n+10)
-		user_id = Random.rand(99)
+		user_id = Random.rand(98)+1
 		replies = topics.each {|topic| topic.replies.create!(content: content, like_num: like_num, user_id: user_id )}
 	end
 end

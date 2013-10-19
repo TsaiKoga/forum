@@ -11,7 +11,7 @@
 	<div id="notifications" class="box box_gray">
 		<div class="tool">
 			<%= link_to "清空", clear_notifications_path, remote: true, method: "POST", data: {disable_with: "清空中..."}, class: "btn btn-danger"%>
-			<div class="total"><span>通知提醒 </span>(<%= @notifications.count %>条) [<%= unread_notifications.count %>条未读]</div>
+			<div class="total"><span>通知提醒 </span>(<%= @notifications.count %>条) [<%= unread_notify_count %>条未读]</div>
 		</div>
 
 		<div class="items">

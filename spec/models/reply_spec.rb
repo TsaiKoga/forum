@@ -13,8 +13,8 @@ describe Reply do
 		it {should_not be_valid}
 	end
 
-	describe "content不能超过100字" do
-		before {@reply.content = "a"*101}
+	describe "content不能超过250字" do
+		before {@reply.content = "a"*251}
 		it {should_not be_valid}
 	end
 

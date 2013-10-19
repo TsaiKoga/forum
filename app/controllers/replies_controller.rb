@@ -6,6 +6,7 @@ class RepliesController < ApplicationController
 		@reply = Reply.new(reply_params)
 		@reply.topic_id = @topic.id
 		@reply.user_id = current_user.id
+		@reply.disposal_floor_and_at
 		if @reply.save
 			flash[:success] = "成功回复！"
 			respond_to do |format|
