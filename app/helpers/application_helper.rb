@@ -12,7 +12,21 @@ module ApplicationHelper
 		  gh_blockcode: true
 		}
 		markdown = Redcarpet::Markdown.new(render.new(hard_wrap: true), options)
+		text = disposal_floor_and_at(text)
 		markdown.render(text).html_safe
+	end
+
+	# 处理回复信息，将有@和#的添加链接
+	def disposal_floor_and_at(text)
+		floor_text = text.gsub(/(#\d+楼)/) do |s|
+			floor = s.gsub(/#/, "").gsub(/楼/, "").to_i
+			"<a href=\"#reply#{floor}\" class='at_floor' data-floor=\"#{floor}\">##{floor}楼</a>"
+		end
+
+		floor_text.gsub(/(@\S+)/) do |s| 
+			at_who = s.gsub(/@/, "")
+			"<a href=\"/#{at_who}\" class='at_who' title=\"#{at_who}\"><i>@</i>#{at_who}</a>"
+		end
 	end
 
 	class HTMLwithPygments < Redcarpet::Render::HTML

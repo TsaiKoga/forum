@@ -32,14 +32,5 @@ class Reply < ActiveRecord::Base
 		true
 	end
 
-	# 处理回复信息，将有@和#的添加链接
-	def disposal_floor_and_at
-		floor = /#\d+楼/.match(self.content).to_s.gsub(/[^\d]/, '')
-		self.content.gsub!(/#\d+楼/, "<a href=\"#reply#{floor}\" class='at_floor' data-floor=\"#{floor}\">##{floor}楼</a>")
-
-		at_who = /@\S+/.match(self.content).to_s.gsub(/^@/, '')
-		self.content.gsub!(/@\S+/, "<a href=\"/#{at_who}\" class='at_who' title=\"@#{at_who}\"><i>@</i>#{at_who}</a>")
-	end
-
 	self.per_page = 15
 end
