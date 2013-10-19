@@ -43,6 +43,10 @@ $white: #fff;
 				color: #bbb;
 				text-decoration: none;
 			}
+			.opts {
+				float: right;
+				text-align: right;
+			}
 		} 
 	}
 }
@@ -89,3 +93,10 @@ topics .topic .body,
 		min-height: 72px;
 	}
 } 
+
+.small_reply {
+	display: inline-block;
+	width:  12px;
+	height: 12px;
+	background: url("sprites/small.png") 0px -168px no-repeat;
+}

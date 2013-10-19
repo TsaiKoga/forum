@@ -29,7 +29,7 @@
 						<div class="right_info">
 							<% unless topic.replies.empty? %>
 								<div class="replies pull-right">
-									<%= link_to "#{topic.replies.count}", class: "count"%>
+									<%= link_to "#{topic.replies.count}", topic_path(topic), class: "count"%>
 								</div>
 							<% end %>
 
