@@ -78,6 +78,9 @@ Forum::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+	# 部署到heroku上是让其assets能够加载css和js
+	config.serve_static_assets = true
+
 	# paperclip支持s3
 	config.paperclip_defaults = {
 		:storage => :s3,
