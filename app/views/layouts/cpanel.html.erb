@@ -11,12 +11,12 @@
 	  <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-        <%= link_to("控制台", cpanel_root_path, class: "brand span2")%>
+				<ul class="nav">
+					<li><%= link_to("控制台", cpanel_root_path, class: "brand span2")%></li>
+					<li><%= link_to("版块", cpanel_sections_path)%></li>
+					<li><%= link_to("节点", cpanel_nodes_path)%></li>
+					<li><%= link_to("帖子", cpanel_topics_path)%></li>
+				</ul>
         <div class="nav-collapse">
 
           <ul class="nav  pull-right">

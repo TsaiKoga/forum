@@ -1,0 +1,12 @@
+<%= simple_form_for([:cpanel, @section]) do |f| %>
+  <fieldset>
+    <legend></legend>
+    <%= f.input :name %>
+    <%= f.input :sort %>
+    <div class="form-actions">
+      <%= f.submit "保存", class: "btn btn-primary", 'data-disable-with' => "保存中..." %>
+      <%= link_to '返回', cpanel_sections_path, class: "btn" %>
+    </div>
+  </fieldset>
+<% end %>
+

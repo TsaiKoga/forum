@@ -1,0 +1,27 @@
+<div id="console_home" class="container-fuild">
+	<h1>所有版块</h1>
+
+	<table class="table table-bordered table-striped table-condensed">
+		<tr class="head">
+			<td class="first">Id</td>
+			<td>Name</td>
+			<td>Sort</td>
+			<td></td>
+		</tr>
+
+	<% @sections.each do |section| %>
+		<tr>
+
+			<td class="first"><%= section.id %></td>
+			<td><%= section.name %></td>
+			<td><%= section.sort %></td>
+			<td><%= link_to '修改版块', edit_cpanel_section_path(section) , :class => "btn btn-success btn-small" %>
+			<%= link_to '', cpanel_section_path(section), 'data-confirm' => 'Are you sure?', :method => :delete, :class => "icon small_delete" %></td>
+		</tr>
+	<% end %>
+	</table>
+
+	<br />
+
+	<%= link_to '创建版块', new_cpanel_section_path, class: "btn btn-primary" %>
+</div>
