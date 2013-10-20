@@ -1,0 +1,22 @@
+<div id="console_home" class="container-fluid">
+	<% if !@recent_topics.blank? %>
+		<div class="group">
+			<h2>最近刚发的<%= @recent_topics.count %>条帖子</h2>
+			<ul>
+				<% @recent_topics.each do |item| %>
+				<li><a href="<%=  %>"><%= truncate(item.title,:length => 50) %></a></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="group">
+		<h2>数量详情</h2>
+		<ul>
+			<li><strong>用户人数:</strong> <%= User.count %> 人</li>
+			<li><strong>帖子数:</strong> <%= Topic.count %> 个</li>
+			<li><strong>回复数:</strong> <%= Reply.count %> 条</li>
+		</ul>
+	</div>
+</div>
+

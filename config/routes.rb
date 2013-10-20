@@ -3,6 +3,14 @@ Forum::Application.routes.draw do
 
 	root to: 'static_pages#home'
 
+	# admin的后台
+	namespace :cpanel do
+		root to: "home#index"
+
+		resources :nodes
+		resources :sections
+	end
+
 	resources :nodes
 
 	match "/topics/node:id", to: "topics#node", via: "get"		# node:id
