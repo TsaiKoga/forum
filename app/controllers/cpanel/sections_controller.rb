@@ -13,7 +13,7 @@ class Cpanel::SectionsController < Cpanel::ApplicationController
 	end
 	
 	def create
-    @section = Section.new(params[:section])
+    @section = Section.new(params[:section].permit!)
 
     if @section.save
       redirect_to cpanel_sections_path
