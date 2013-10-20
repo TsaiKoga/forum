@@ -3,10 +3,10 @@ namespace :db do
 	desc "增加基础数据"
 	task populate: :environment do
 		make_users
-		make_sections
-		make_nodes
-		make_topics
-		make_replies
+		# make_sections
+		# make_nodes
+		# make_topics
+		# make_replies
 	end
 end
 
@@ -16,12 +16,12 @@ def make_users
 											 password: "12345678",
 											 password_confirmation: "12345678",
 											 admin: true)
-	99.times do |n|
-		name = "#{Faker::Internet.user_name}-#{n}s"
-		email = "example-#{n+1}@railstutorial.org"
-		password = "password"
-		User.create!(name: name, email: email, password: password, password_confirmation: password)
-	end
+	# 99.times do |n|
+		# name = "#{Faker::Internet.user_name}-#{n}s"
+		# email = "example-#{n+1}@railstutorial.org"
+		# password = "password"
+		# User.create!(name: name, email: email, password: password, password_confirmation: password)
+	# end
 end
 
 def make_sections
