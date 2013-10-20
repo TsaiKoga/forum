@@ -10,6 +10,7 @@ Forum::Application.routes.draw do
 		resources :nodes
 		resources :sections
 		resources :topics
+		resources :replies
 	end
 
 	resources :nodes

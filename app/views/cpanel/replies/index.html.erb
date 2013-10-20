@@ -1,0 +1,36 @@
+<div id="console_home" class="container-fuild">
+	<h1>所有回复</h1>
+
+	<table class="table table-bordered table-striped table-condensed">
+		<tr class="head">
+			<td class="first">ID</td>
+			<td style="width:500px">Content</td>
+			<td>Topic</td>
+			<td>User</td>
+
+			<td></td>
+		</tr>
+
+	<% @replies.each do |reply| %>
+		<tr id="reply-<%= reply.id %>" class="">
+			<td class="first"><%= reply.id %></td>
+			<td><%= truncate(reply.content, :length => 50) %></td>
+
+			<% if reply.topic %>
+				<td>
+						<%= link_to(reply.topic_id, topic_path(reply.topic_id), :title => reply.topic.title)%>
+				</td>
+				<% else %>
+				<td><%= reply.topic_id %></td>
+			<% end %>
+
+			<td><%= link_to(reply.user.name, user_path(reply.user.name), target: "_blank") if reply.user %></td>
+			<td><%= link_to '修改回复', edit_cpanel_reply_path(reply), :class => "btn btn-small btn-success" %>
+			<%= link_to '删除回复', cpanel_reply_path(reply), 'data-confirm' => 'Are you sure?', method: :delete, remote: true, class: "btn btn-small btn-danger" %></td>
+		</tr>
+	<% end %>
+
+	</table>
+	<%= will_paginate @replies %>
+</div>
+
