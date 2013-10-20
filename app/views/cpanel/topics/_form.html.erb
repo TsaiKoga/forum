@@ -1,0 +1,15 @@
+<%= simple_form_for([:cpanel, @topic]) do |f| %>
+  <fieldset>
+    <legend></legend>
+
+    <%= f.input :title, :input_html => { :class => "span10 "} %>
+    <%= f.input :node_id %>
+    <%= f.input :user_id %>
+    <%= f.input :content, :as => :text, :input_html => { :class => "span8", :rows => "10"} %>
+    <div class="form-actions">
+      <%= f.submit "保存", class: "btn btn-primary", 'data-disable-with' => "保存中..." %>
+      or
+      <%= link_to '返回', cpanel_topics_path, class: "btn"%>
+    </div>
+  </fieldset>
+<% end %>
