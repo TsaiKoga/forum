@@ -11,9 +11,19 @@
 	<div class="content">
 		<div class='box box_gray'>
 			<div id="node_info">
-				<div class="sorts">
-					<span class="lb">查看:</span>
-					<ul></ul>
+				<div class="<%= @node.nil? ? "sorts" : "" %>">
+					<% if @node.nil? %>
+						<span class="lb">查看:</span>
+							<ul>
+								<li><%= link_to "默认", topics_path, title: "" %></li> / 
+								<li><%= link_to "最受欢迎", popular_topics_path, title: "最受欢迎的帖子" %></li> / 
+								<li><%= link_to "最新创建", last_topics_path, title: "最新创建的帖子" %></li>
+							</ul>
+					<% else %>
+						<h2><%= @node.name %></h2>
+						<span>共有 <%= @topics.count %> 个讨论主题</span>
+						<div class="desc"><%= @node.summary %></div>
+					<% end %>
 				</div>
 			</div>
 

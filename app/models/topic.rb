@@ -10,6 +10,9 @@ class Topic < ActiveRecord::Base
 
 	scope :find_high_likes_topics, order("like_num DESC")
 	scope :find_high_replies_topics, order("read_num DESC")
+	scope :popular, -> { where("like_num > ?", 5) }
+	scope :last, -> { order('created_at DESC') }		# TODO
+
 
 	def replies_count
 		replies.count

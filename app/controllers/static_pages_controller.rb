@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
 	def home
 		@high_likes_topics = Topic.find_high_likes_topics.take(10)
 		@high_replies_topics = Topic.find_high_replies_topics.take(10)
+		@sections = Section.all.includes(:nodes)													# egar loading
 	end
 
   def cool_site

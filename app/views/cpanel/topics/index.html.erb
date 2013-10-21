@@ -1,33 +1,35 @@
-<h1>所有帖子</h1>
+<div id="console_home" class="container-fuild">
+	<h1>所有帖子</h1>
 
-<table class="table table-bordered table-striped table-condensed">
-  <tr class="head">
-    <td class="first">ID</td>
-    <td style="width:300px">Title</td>
-    <td>Node</td>
-    <td>User</td>
-    <td>Replies</td>
-    <td>at</td>
-    <td style="width:100px"></td>
-  </tr>
-
-	<% @topics.each do |topic| %>
-		<tr class="">
-			<td class="first"><%= topic.id %></td>
-			<td>
-				<%= truncate(topic.title,:length => 30) %>
-			</td>
-			<td><%= topic.node.name if topic.node %></td>
-			<td><%= topic.user.name if topic.user %></td>
-			<td><%= topic.replies_count %></td>
-			<td>
-				<%= link_to "#{topic.who_deleted}删除", user_path(topic.who_deleted) if not topic.who_deleted.blank? %><br />
-			</td>
-			<td>
-				<%= link_to "修改帖子", edit_cpanel_topic_path(topic), :class => "btn btn-small btn-success" %>
-			</td>
+	<table class="table table-bordered table-striped table-condensed">
+		<tr class="head">
+			<td class="first">ID</td>
+			<td style="width:300px">Title</td>
+			<td>Node</td>
+			<td>User</td>
+			<td>Replies</td>
+			<td>at</td>
+			<td style="width:100px"></td>
 		</tr>
-	<% end %>
-</table>
 
-<%= will_paginate @topics %>
+		<% @topics.each do |topic| %>
+			<tr class="">
+				<td class="first"><%= topic.id %></td>
+				<td>
+					<%= truncate(topic.title,:length => 30) %>
+				</td>
+				<td><%= topic.node.name if topic.node %></td>
+				<td><%= topic.user.name if topic.user %></td>
+				<td><%= topic.replies_count %></td>
+				<td>
+					<%= link_to "#{topic.who_deleted}删除", user_path(topic.who_deleted) if not topic.who_deleted.blank? %><br />
+				</td>
+				<td>
+					<%= link_to "修改帖子", edit_cpanel_topic_path(topic), :class => "btn btn-small btn-success" %>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+
+	<%= will_paginate @topics %>
+</div>

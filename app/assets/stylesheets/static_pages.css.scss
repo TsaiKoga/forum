@@ -76,6 +76,23 @@ $gray: #778087;
 		border-top: 1px solid #DDD;
 		position: relative;
 		overflow: auto;
+		label {
+			font-size: 12px;
+			color: #999;
+			display: inline-block;
+			width: 120px;
+			margin-right: -130px;
+			padding-right: 10px;
+			float: left;
+			text-align: right;
+		}
+		span.nodes {
+			float: left;
+			margin-left: 130px;
+		}
+		a {
+			margin-right: 10px;
+		}
 	}
 } 
 

@@ -15,7 +15,7 @@ Forum::Application.routes.draw do
 
 	resources :nodes
 
-	match "/topics/node:id", to: "topics#node", via: "get"		# node:id
+	match "/topics/node:id", to: "topics#node", via: "get", as: "node_topics"		# node:id
 
 	match "/about", to: "static_pages#about", via: "get"
 
@@ -32,6 +32,8 @@ Forum::Application.routes.draw do
 		end
 		collection do
 			post :preview
+			get :popular
+			get :last
 		end
 		resources :replies
 	end

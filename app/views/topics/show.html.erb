@@ -21,7 +21,7 @@
 					</div>
 					<h1><%= @topic.title %></h1>
 					<div class="info_header">
-						<%= link_to "#{@topic.node.name}", class: 'node'%> • 
+						<%= link_to "#{@topic.node.name}", node_topics_path(@topic.node), class: 'node'%> • 
 						<%= link_to "#{@topic.user.name}", user_path(@topic.user.name)%> • 
 						<abbr class="timeago" title=""><%= @topic.date_time %></abbr>发布 • 
 						<%= @topic.read_num %>次阅读
