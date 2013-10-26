@@ -14,6 +14,8 @@ class UsersController < ApplicationController
 	end
 
 	def favorites
+		favorite_topic_ids = current_user.favorite_topic_ids.nil? ? [] : current_user.favorite_topic_ids.split(",")
+		@favorites = Topic.find_by_ids(favorite_topic_ids)
 	end
 
 	def notes

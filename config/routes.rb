@@ -29,6 +29,7 @@ Forum::Application.routes.draw do
 	resources :topics do
 		member do
 			post :reply
+			post :favorite
 		end
 		collection do
 			post :preview

@@ -25,6 +25,22 @@ window.Topics =
 		reply_body.focus().val(reply_body.val() + new_text)
 		return false
 
+	# 收藏帖子
+	favorite: (el) ->
+		topic_id = $(el).data("id")
+		if $(el).hasClass("small_bookmarked")
+			hash = {type: "unfavorite"}
+			$.ajax
+				url: "/topics/#{topic_id}/favorite"
+				data: hash
+				type: "POST"
+			$(el).attr("title", "收藏")
+			$(el).attr("class", "icon small_bookmark")
+		else
+			$.post "/topics/#{topic_id}/favorite"
+			$(el).attr("title", "取消收藏")
+			$(el).attr("class", "icon small_bookmarked")
+		false
 
 $(document).ready ->
 	$(".edit a").click ->

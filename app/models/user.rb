@@ -50,4 +50,23 @@ class User < ActiveRecord::Base
 			}).update_all(read: true, updated_at: Time.now)
 		end
 	end
+
+	# 收藏帖子
+	def favorite_topic(topic_id)
+		return false if topic_id.blank?
+		topic_id = topic_id.to_s
+		favorite_topic_ids = self.favorite_topic_ids.nil? ? [] : self.favorite_topic_ids.split(",")
+		return false if favorite_topic_ids.include?(topic_id)
+		favorite_topic_ids.push(topic_id)
+		self.update_attributes!(favorite_topic_ids: favorite_topic_ids.join(","))
+		true
+	end
+
+	# 取消收藏帖子
+	def unfavorite_topic(topic_id)
+		return false if topic_id.blank?
+		favorite_topic_ids = self.favorite_topic_ids.nil? ? [] : self.favorite_topic_ids.split(",")
+		favorite_topic_ids.delete(topic_id)
+		self.update_attributes!(favorite_topic_ids: favorite_topic_ids.join(","))
+	end
 end

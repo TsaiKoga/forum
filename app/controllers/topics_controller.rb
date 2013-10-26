@@ -85,4 +85,14 @@ class TopicsController < ApplicationController
 		render action: "index"
 	end
 
+	# 收藏或取消收藏
+	def favorite
+		if params[:type] == "unfavorite"
+			current_user.unfavorite_topic(params[:id])
+		else
+			current_user.favorite_topic(params[:id])
+		end
+		render text: '1'
+	end
+
 end

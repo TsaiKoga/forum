@@ -7,4 +7,8 @@ module RepliesHelper
 			false
 		end
 	end
+
+	def all_replies_count
+		Reply.count
+	end
 end

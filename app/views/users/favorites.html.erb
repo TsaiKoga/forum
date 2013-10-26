@@ -30,6 +30,13 @@
 						<td>节点</td>
 						<td>标题</td>
 					</tr>
+
+					<% @favorites.each do |favorite_topic| %>
+						<tr>
+							<td><%= link_to favorite_topic.node.name, node_topics_path(favorite_topic.node) %></td>
+							<td><%= link_to favorite_topic.title, topic_path(favorite_topic) %></td>
+						</tr>
+					<% end %>
 				</tbody>
 			</table>
 		</div>

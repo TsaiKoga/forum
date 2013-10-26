@@ -52,4 +52,11 @@ class Topic < ActiveRecord::Base
     # delete_notifiaction_mentions
   end
 
+	def self.find_by_ids(ids)
+		topics = ids.collect do |_id|
+			self.find(_id.to_i)
+		end
+		topics
+	end
+
 end

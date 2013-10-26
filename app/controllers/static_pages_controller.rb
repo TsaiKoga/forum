@@ -24,9 +24,6 @@ class StaticPagesController < ApplicationController
 	def topics
 	end
 
-	def favorites
-	end
-
 	def notes
 	end
 
