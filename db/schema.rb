@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131026065138) do
+ActiveRecord::Schema.define(version: 20131027140056) do
 
   create_table "nodes", force: true do |t|
     t.string   "name"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20131026065138) do
     t.integer  "like_num"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "liked_user_ids"
   end
 
   create_table "sections", force: true do |t|
@@ -50,14 +51,16 @@ ActiveRecord::Schema.define(version: 20131026065138) do
 
   create_table "topics", force: true do |t|
     t.string   "title"
-    t.integer  "read_num",    default: 0
-    t.integer  "like_num",    default: 0
+    t.integer  "read_num",       default: 0
+    t.integer  "like_num",       default: 0
     t.text     "content"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "who_deleted"
     t.integer  "node_id"
+    t.string   "liked_user_ids"
+    t.integer  "replies_count",  default: 0
   end
 
   add_index "topics", ["user_id", "created_at"], name: "index_topics_on_user_id_and_created_at", using: :btree

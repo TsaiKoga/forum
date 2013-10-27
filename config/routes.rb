@@ -39,6 +39,8 @@ Forum::Application.routes.draw do
 		resources :replies
 	end
 
+	resources :likes, only: [:create, :destroy]
+
 	resources :notifications, only: [:index, :destroy] do
 		collection do
 			post :clear

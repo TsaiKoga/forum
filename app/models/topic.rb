@@ -9,14 +9,10 @@ class Topic < ActiveRecord::Base
   default_scope -> { order('created_at DESC') }
 
 	scope :find_high_likes_topics, order("like_num DESC")
-	scope :find_high_replies_topics, order("read_num DESC")
+	scope :find_high_replies_topics, order("replies_count DESC")
 	scope :popular, -> { where("like_num > ?", 5) }
-	scope :last, -> { order('created_at DESC') }		# TODO
+	scope :last_created, -> { order('created_at DESC') }		# TODO
 
-
-	def replies_count
-		replies.count
-	end
 
 	def created_ago
 		created_at
@@ -57,6 +53,14 @@ class Topic < ActiveRecord::Base
 			self.find(_id.to_i)
 		end
 		topics
+	end
+
+	def liked_by_user?(user)
+		return false if user.blank?
+		user_id = user.id
+		liked_user_ids = self.liked_user_ids.blank? ? [] : self.liked_user_ids.split(",")
+		return true if liked_user_ids.include?(user_id.to_s)
+		false
 	end
 
 end

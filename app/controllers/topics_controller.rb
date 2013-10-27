@@ -81,7 +81,7 @@ class TopicsController < ApplicationController
 	end
 
 	def last
-		@topics = Topic.last.paginate(page: params[:page], per_page: 15)
+		@topics = Topic.last_created.paginate(page: params[:page], per_page: 15)
 		render action: "index"
 	end
 

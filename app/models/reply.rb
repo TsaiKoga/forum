@@ -13,7 +13,10 @@ class Reply < ActiveRecord::Base
 	# 通知文章作者(带参数的回调)
 	after_create do
 		self.send_topic_reply_notification(self.id)
+		self.inc_topic_replies_count
 	end
+
+	after_destroy :des_topic_replies_count
 
 	# 创建通知
 	def send_topic_reply_notification(reply_id)
@@ -30,6 +33,24 @@ class Reply < ActiveRecord::Base
 		end
 
 		true
+	end
+
+	def liked_by_user?(user)
+		return false if user.blank?
+		user_id = user.id
+		liked_user_ids = self.liked_user_ids.blank? ? [] : self.liked_user_ids.split(",")
+		return true if liked_user_ids.include?(user_id.to_s)
+		false
+	end
+
+	def inc_topic_replies_count
+		replies_count = self.topic.replies_count + 1
+		self.topic.update_attributes!(replies_count: replies_count)
+	end
+
+	def des_topic_replies_count
+		replies_count = self.topic.replies_count - 1
+		self.topic.update_attributes!(replies_count: replies_count)
 	end
 
 	self.per_page = 15

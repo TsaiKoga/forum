@@ -207,6 +207,12 @@ input.span5, textarea.span5 {
 	height: 12px;
 	background: image-url("sprites/small.png") 0px -120px no-repeat;
 }
+.small_liked {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	background: image-url("sprites/small.png") 0px -132px no-repeat;
+}
 .small_bookmark {
 	display: inline-block;
 	width: 12px;

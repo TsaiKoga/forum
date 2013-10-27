@@ -33,10 +33,7 @@
 				</div>
 
 				<div class="tools pull-right">
-					<%= link_to "#", class: "likeable", title: "喜欢" do %>
-						<i class="icon small_like"></i>
-						<span><%= "#{@topic.like_num}人喜欢"%></span>
-					<% end %>
+					<%= likeable_tag(@topic) %>
 
 					<%= topic_favorite_tag(@topic) %>
 				</div>

@@ -69,4 +69,25 @@ class User < ActiveRecord::Base
 		favorite_topic_ids.delete(topic_id)
 		self.update_attributes!(favorite_topic_ids: favorite_topic_ids.join(","))
 	end
+
+	# 喜欢帖子
+	def like(likeable)
+		return false if likeable.liked_by_user?(self)
+		user_id = self.id.to_s
+		liked_user_ids = likeable.liked_user_ids.nil? ? [] : likeable.liked_user_ids.split(",")
+		liked_user_ids.push(user_id)
+		like_num = likeable.like_num.to_i + 1
+		likeable.update_attributes!(liked_user_ids: liked_user_ids.join(","), like_num: like_num)
+		true
+	end
+	
+	# 取消喜欢
+	def unlike(likeable)
+		return false unless likeable.liked_by_user?(self)
+		user_id = self.id.to_s
+		liked_user_ids = likeable.liked_user_ids.nil? ? [] : likeable.liked_user_ids.split(",")
+		liked_user_ids.delete(user_id)
+		like_num = likeable.like_num - 1
+		likeable.update_attributes!(liked_user_ids: liked_user_ids.join(","), like_num: like_num)
+	end
 end

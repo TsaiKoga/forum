@@ -23,10 +23,8 @@
 							<abbr class="timeago" title=<%"#{reply.created_at}"%>><%=reply.created_at%></abbr>
 						</span>
 						<span class="opts">
-							<%= link_to "#", class: "likable", title: '喜欢' do %>
-								<i class="icon small_like"></i>
-								<span>喜欢</span>
-							<% end %>
+							<%= likeable_tag(reply) %>
+
 							<% if can_edit_reply?(reply) %>
 								<%= link_to "编辑", edit_topic_reply_path(@topic, reply), class: "icon small_edit", title: "编辑" %>
 							<% end %>
