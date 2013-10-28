@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		@like_topics = @user.topics.where("like_num > ?", 0).paginate(page: params[:page], per_page: 15)
 	end
 
 	def topics

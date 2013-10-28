@@ -49,9 +49,8 @@ def make_topics
 	30.times do |n|
 		content = Faker::Lorem.sentences(8)
 		title = Faker::Lorem.paragraph[0..12]
-		like_num = Random.rand(n+10)
 		read_num = Random.rand(n+12)
-		users.each {|user| user.topics.create!(title: title, content: content, like_num: like_num, read_num: read_num, node_id: nodes.first.id)}
+		users.each {|user| user.topics.create!(title: title, content: content, read_num: read_num, node_id: nodes.first.id)}
 	end
 end
 
@@ -59,8 +58,7 @@ def make_replies
 	topics = Topic.all(limit: 17)
 	15.times do |n|
 		content = Faker::Lorem.sentences(4)
-		like_num = Random.rand(n+10)
 		user_id = Random.rand(98)+1
-		replies = topics.each {|topic| topic.replies.create!(content: content, like_num: like_num, user_id: user_id )}
+		replies = topics.each {|topic| topic.replies.create!(content: content, user_id: user_id )}
 	end
 end
